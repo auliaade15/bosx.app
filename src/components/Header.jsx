@@ -13,7 +13,7 @@ export default function Header() {
         <input
           id="search-input"
           type="text"
-          placeholder="Search Here..."
+          placeholder="Cari disini..."
           className="border border-gray-100 p-2 pr-10 bg-white w-full max-w-lg rounded-md outline-none"
         />
         <FaSearch
