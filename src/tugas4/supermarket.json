@@ -1,0 +1,343 @@
+[
+    {
+      "id": 1,
+      "name": "FreshMart",
+      "type": "Grocery",
+      "openHours": "08:00 - 22:00",
+      "photo": "/public/img/freshmart.jpeg",
+      "location": {
+        "city": "Jakarta",
+        "address": "Jl. Merdeka No. 1"
+      },
+      "contact": {
+        "phone": "021-555-1001"
+      },
+      "manager": {
+        "name": "Budi Santoso"
+      }
+    },
+    {
+      "id": 2,
+      "name": "HappyFresh",
+      "type": "Supermarket",
+      "openHours": "09:00 - 21:00",
+      "photo": "/public/img/happyfresh.jpeg",
+      "location": {
+        "city": "Bandung",
+        "address": "Jl. Dago No. 55"
+      },
+      "contact": {
+        "phone": "022-888-1002"
+      },
+      "manager": {
+        "name": "Siti Aminah"
+      }
+    },
+    {
+      "id": 3,
+      "name": "DailyNeeds",
+      "type": "Grocery",
+      "openHours": "07:00 - 23:00",
+      "photo": "/public/img/dailyneed.jpeg",
+      "location": {
+        "city": "Surabaya",
+        "address": "Jl. Ahmad Yani No. 9"
+      },
+      "contact": {
+        "phone": "031-777-1003"
+      },
+      "manager": {
+        "name": "Tono Wijaya"
+      }
+    },
+    {
+      "id": 4,
+      "name": "MarketPro",
+      "type": "Wholesale",
+      "openHours": "06:00 - 18:00",
+      "photo": "/public/img/marketpro.jpeg",
+      "location": {
+        "city": "Medan",
+        "address": "Jl. Sisingamangaraja No. 10"
+      },
+      "contact": {
+        "phone": "061-999-1004"
+      },
+      "manager": {
+        "name": "Lisa Mulyani"
+      }
+    },
+    {
+      "id": 5,
+      "name": "SuperGroceries",
+      "type": "Wholesale",
+      "openHours": "05:00 - 20:00",
+      "photo": "/public/img/supergroceries.jpeg",
+      "location": {
+        "city": "Makassar",
+        "address": "Jl. Cendrawasih No. 22"
+      },
+      "contact": {
+        "phone": "0411-555-1005"
+      },
+      "manager": {
+        "name": "Andi Rudi"
+      }
+    },
+    {
+      "id": 6,
+      "name": "FreshPlus",
+      "type": "Supermarket",
+      "openHours": "08:00 - 21:00",
+      "photo": "/public/img/freshplus2.jpeg",
+      "location": {
+        "city": "Yogyakarta",
+        "address": "Jl. Kaliurang KM 5"
+      },
+      "contact": {
+        "phone": "0274-444-1006"
+      },
+      "manager": {
+        "name": "Nur Aini"
+      }
+    },
+    {
+      "id": 7,
+      "name": "FoodWorld",
+      "type": "Grocery",
+      "openHours": "09:00 - 23:00",
+      "photo": "/public/img/foodworld.jpeg",
+      "location": {
+        "city": "Jakarta",
+        "address": "Jl. Sudirman No. 88"
+      },
+      "contact": {
+        "phone": "021-456-1007"
+      },
+      "manager": {
+        "name": "Rizal Hakim"
+      }
+    },
+    {
+      "id": 8,
+      "name": "GoMart",
+      "type": "Mini Market",
+      "openHours": "06:00 - 23:00",
+      "photo": "/public/img/gomart.jpeg",
+      "location": {
+        "city": "Bekasi",
+        "address": "Jl. Ahmad Bakrie No. 17"
+      },
+      "contact": {
+        "phone": "021-323-1008"
+      },
+      "manager": {
+        "name": "Dewi Kartika"
+      }
+    },
+    {
+      "id": 9,
+      "name": "IndoGrosir",
+      "type": "Wholesale",
+      "openHours": "05:00 - 22:00",
+      "photo": "public/img/indogrosir.jpeg",
+      "location": {
+        "city": "Depok",
+        "address": "Jl. Margonda No. 99"
+      },
+      "contact": {
+        "phone": "021-898-1009"
+      },
+      "manager": {
+        "name": "Agus Salim"
+      }
+    },
+    {
+      "id": 10,
+      "name": "CityMart",
+      "type": "Supermarket",
+      "openHours": "08:00 - 22:00",
+      "photo": "public/img/citysmart.jpeg",
+      "location": {
+        "city": "Bogor",
+        "address": "Jl. Pajajaran No. 20"
+      },
+      "contact": {
+        "phone": "0251-444-1010"
+      },
+      "manager": {
+        "name": "Maya Rahayu"
+      }
+    },
+    {
+      "id": 11,
+      "name": "HyperGrosir",
+      "type": "Wholesale",
+      "openHours": "07:00 - 21:00",
+      "photo": "/public/img/hypergrosir.jpeg",
+      "location": {
+        "city": "Tangerang",
+        "address": "Jl. BSD Raya No. 11"
+      },
+      "contact": {
+        "phone": "021-888-1011"
+      },
+      "manager": {
+        "name": "Teguh Hadi"
+      }
+    },
+    {
+      "id": 12,
+      "name": "MiniFresh",
+      "type": "Mini Market",
+      "openHours": "06:00 - 22:00",
+      "photo": "/public/img/minifresh.jpeg",
+      "location": {
+        "city": "Semarang",
+        "address": "Jl. Pandanaran No. 3"
+      },
+      "contact": {
+        "phone": "024-700-1012"
+      },
+      "manager": {
+        "name": "Indah Wati"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Everyday",
+      "type": "Grocery",
+      "openHours": "07:00 - 22:00",
+      "photo": "/public/img/everyday.jpeg",
+      "location": {
+        "city": "Solo",
+        "address": "Jl. Slamet Riyadi No. 7"
+      },
+      "contact": {
+        "phone": "0271-456-1013"
+      },
+      "manager": {
+        "name": "Bambang S"
+      }
+    },
+    {
+      "id": 14,
+      "name": "MegaMart",
+      "type": "Supermarket",
+      "openHours": "09:00 - 21:00",
+      "photo": "/public/img/megamart.jpeg",
+      "location": {
+        "city": "Pontianak",
+        "address": "Jl. Gajah Mada No. 100"
+      },
+      "contact": {
+        "phone": "0561-789-1014"
+      },
+      "manager": {
+        "name": "Susi Lestari"
+      }
+    },
+    {
+      "id": 15,
+      "name": "HyperMart",
+      "type": "Supermarket",
+      "openHours": "10:00 - 22:00",
+      "photo": "/public/img/hypermart2.jpeg",
+      "location": {
+        "city": "Palembang",
+        "address": "Jl. Kol Atmo No. 12"
+      },
+      "contact": {
+        "phone": "0711-111-1015"
+      },
+      "manager": {
+        "name": "Tommy Gunawan"
+      }
+    },
+    {
+      "id": 16,
+      "name": "TokoJumbo",
+      "type": "Mini Market",
+      "openHours": "07:00 - 21:00",
+      "photo": "/public/img/tokojumbo.jpg",
+      "location": {
+        "city": "Padang",
+        "address": "Jl. Proklamasi No. 5"
+      },
+      "contact": {
+        "phone": "0751-555-1016"
+      },
+      "manager": {
+        "name": "Rini S"
+      }
+    },
+    {
+      "id": 17,
+      "name": "WarungKita",
+      "type": "Mini Market",
+      "openHours": "06:00 - 21:00",
+      "photo": "/public/img/warungkita.jpg",
+      "location": {
+        "city": "Malang",
+        "address": "Jl. Soekarno Hatta No. 10"
+      },
+      "contact": {
+        "phone": "0341-232-1017"
+      },
+      "manager": {
+        "name": "Dian Prasetyo"
+      }
+    },
+    {
+      "id": 18,
+      "name": "GrosirRakyat",
+      "type": "Wholesale",
+      "openHours": "05:00 - 18:00",
+      "photo": "/public/img/grosirrakyat.jpeg",
+      "location": {
+        "city": "Balikpapan",
+        "address": "Jl. Mulawarman No. 88"
+      },
+      "contact": {
+        "phone": "0542-700-1018"
+      },
+      "manager": {
+        "name": "Hanafi"
+      }
+    },
+    {
+      "id": 19,
+      "name": "PrimaMart",
+      "type": "Supermarket",
+      "openHours": "08:00 - 22:00",
+      "photo": "/public/img/primamart.jpeg",
+      "location": {
+        "city": "Pekanbaru",
+        "address": "Jl. Tuanku Tambusai No. 33"
+      },
+      "contact": {
+        "phone": "0761-333-1019"
+      },
+      "manager": {
+        "name": "Putri Wulandari"
+      }
+    },
+    {
+      "id": 20,
+      "name": "EasyMart",
+      "type": "Mini Market",
+      "openHours": "06:00 - 22:00",
+      "photo": "/public/img/easymart.jpeg",
+      "location": {
+        "city": "Batam",
+        "address": "Jl. Engku Putri No. 1"
+      },
+      "contact": {
+        "phone": "0778-444-1020"
+      },
+      "manager": {
+        "name": "Yanto Prabowo"
+      }
+    }
+  ]
+  

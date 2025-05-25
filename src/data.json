@@ -1,0 +1,15 @@
+{
+    "inventory": [
+      ["001", "Apples", "150", "Fresh"],
+      ["002", "Bananas", "100", "Fresh"]
+    ],
+    "transactions": [
+      ["TX001", "2025-04-25", "50000", "Completed"],
+      ["TX002", "2025-04-24", "32000", "Pending"]
+    ],
+    "suppliers": [
+      ["SUP01", "FreshFruits Inc.", "fresh@fruit.com", "Active"],
+      ["SUP02", "VeggieWorld", "info@veggieworld.com", "Inactive"]
+    ]
+  }
+  

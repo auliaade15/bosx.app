@@ -1,0 +1,6 @@
+[
+    { "id": "SUP001", "name": "FreshFarm Co.", "contact": "08123456789", "address": "Jl. Pertanian No. 12" },
+    { "id": "SUP002", "name": "DairyBest", "contact": "08234567890", "address": "Jl. Susu Segar No. 5" },
+    { "id": "SUP003", "name": "Tropicana Fruits", "contact": "08345678901", "address": "Jl. Buah Tropis No. 7" }
+  ]
+  
