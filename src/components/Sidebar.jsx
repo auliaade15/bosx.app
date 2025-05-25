@@ -14,7 +14,7 @@ const Sidebar = () => {
   return (
     <aside className="w-64 h-screen bg-[#F8F9FD] p-6 flex flex-col">
       <div className="text-2xl font-bold mb-10">
-        <span className="text-blue-600">Gomart</span> 
+        <span className="text-blue-600">Fresh Market</span> 
       </div>
 
       <nav className="flex flex-col gap-3">
@@ -36,7 +36,7 @@ const Sidebar = () => {
       </nav>
 
       <div className="mt-auto bg-blue-100 rounded-lg p-4 text-center text-sm text-blue-700">
-        Please organize here!
+        Organize here!
       </div>
     </aside>
   );
