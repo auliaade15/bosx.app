@@ -1,32 +1,80 @@
 // src/pages/Dashboard.jsx
 
-import { BarChart, Bar, XAxis, YAxis, Tooltip, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+} from "recharts";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { BsFillExclamationDiamondFill } from "react-icons/bs";
 
 const salesData = [
-  { name: '01', last6days: 400, lastWeek: 240 },
-  { name: '02', last6days: 300, lastWeek: 139 },
-  { name: '03', last6days: 200, lastWeek: 980 },
-  { name: '04', last6days: 278, lastWeek: 390 },
-  { name: '05', last6days: 189, lastWeek: 480 },
-  { name: '06', last6days: 239, lastWeek: 380 },
+  { name: "01", last6days: 400, lastWeek: 240 },
+  { name: "02", last6days: 300, lastWeek: 139 },
+  { name: "03", last6days: 200, lastWeek: 980 },
+  { name: "04", last6days: 278, lastWeek: 390 },
+  { name: "05", last6days: 189, lastWeek: 480 },
+  { name: "06", last6days: 239, lastWeek: 380 },
 ];
 
 const pieData = [
-  { name: 'Afternoon', value: 40 },
-  { name: 'Evening', value: 32 },
-  { name: 'Morning', value: 28 },
+  { name: "Afternoon", value: 40 },
+  { name: "Evening", value: 32 },
+  { name: "Morning", value: 28 },
 ];
 
-const COLORS = ['#5D5FEF', '#A0A3FF', '#D1D3FF'];
+const COLORS = ["#5D5FEF", "#A0A3FF", "#D1D3FF"];
 
 export default function Dashboard() {
+  const [advice, setAdvice] = useState("");
+  const [error, setError] = useState("");
+
+  // penggunaan API
+  useEffect(() => {
+    axios
+      .get("https://api.adviceslip.com/advice")
+      .then((response) => {
+        if (response.status === 200) {
+          setAdvice(response.data.slip.advice);
+        } else {
+          setError("Failed to fetch advice.");
+        }
+      })
+      .catch((err) => {
+        setError(err.message || "An unknown error occurred");
+      });
+  }, []);
+
+  // tampilan error
+  const errorInfo = error ? (
+    <div className="bg-red-200 mb-5 p-5 text-sm font-light text-gray-600 rounded flex items-center">
+      <BsFillExclamationDiamondFill className="text-red-600 me-2 text-lg" />
+      {error}
+    </div>
+  ) : null;
+
   return (
     <div className="p-6 space-y-6">
-      
+      {errorInfo}
+      {/* Menampilkan quotes */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm text-center">
+        <h3 className="font-medium mb-4">Quotes of the day</h3>
+        <p className="text-gray-700 italic">"{advice}"</p>
+      </div>
+
       {/* Revenue */}
       <div className="bg-white rounded-2xl p-6 shadow-sm">
         <h2 className="text-gray-500 text-sm">Revenue</h2>
-        <div className="text-3xl font-semibold text-[#2D2F39] mt-2">IDR 7.852.000</div>
+        <div className="text-3xl font-semibold text-[#2D2F39] mt-2">
+          IDR 7.852.000
+        </div>
         <div className="text-green-500 text-sm mt-1">+2.1% vs last week</div>
       </div>
 
@@ -51,14 +99,21 @@ export default function Dashboard() {
           <h3 className="font-medium mb-4">Order Time</h3>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
-              <Pie data={pieData} dataKey="value" innerRadius={50} outerRadius={80}>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                innerRadius={50}
+                outerRadius={80}
+              >
                 {pieData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index]} />
                 ))}
               </Pie>
             </PieChart>
           </ResponsiveContainer>
-          <div className="text-sm text-center text-gray-500 mt-2">Afternoon 40%</div>
+          <div className="text-sm text-center text-gray-500 mt-2">
+            Afternoon 40%
+          </div>
         </div>
       </div>
 
@@ -69,21 +124,27 @@ export default function Dashboard() {
           <h3 className="font-medium mb-4">Stock Health</h3>
           <div className="flex gap-4 justify-center">
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#A0E3F2] rounded-full flex items-center justify-center text-lg font-bold">92%</div>
+              <div className="w-20 h-20 bg-[#A0E3F2] rounded-full flex items-center justify-center text-lg font-bold">
+                92%
+              </div>
               <div className="mt-2 text-sm">Freshness</div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#CDB4DB] rounded-full flex items-center justify-center text-lg font-bold">85%</div>
+              <div className="w-20 h-20 bg-[#CDB4DB] rounded-full flex items-center justify-center text-lg font-bold">
+                85%
+              </div>
               <div className="mt-2 text-sm">Packaging</div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#FDA4AF] rounded-full flex items-center justify-center text-lg font-bold">85%</div>
+              <div className="w-20 h-20 bg-[#FDA4AF] rounded-full flex items-center justify-center text-lg font-bold">
+                85%
+              </div>
               <div className="mt-2 text-sm">Stock Quality</div>
             </div>
           </div>
         </div>
 
-        {/* Most Ordered Food */}
+        {/* Best Selling Products */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h3 className="font-medium mb-4">Best Selling Products</h3>
           <ul className="space-y-3">
@@ -106,7 +167,6 @@ export default function Dashboard() {
           </ul>
         </div>
       </div>
-
     </div>
   );
 }

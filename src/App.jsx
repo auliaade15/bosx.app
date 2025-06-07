@@ -35,12 +35,14 @@ const Error403 = React.lazy(() => import("./pages/Error403"));
 const FormOrders = React.lazy(() => import("./pages/FormOrders"));
 const FormCustomers = React.lazy(() => import("./pages/FormCustomer"));
 const Quotes = React.lazy(() => import("./pages/Quotes"));
+const OrderDetail = React.lazy(() => import("./pages/OrderDetail"));
+const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
 
 export default function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
-        < Route element={<MainLayout />}>
+        <Route element={<MainLayout />}>
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/Orders" element={<Orders />} />
@@ -51,6 +53,8 @@ export default function App() {
           <Route path="/error403" element={<Error403 />} />
           <Route path="/suppliers" element={<Suppliers />} />
           <Route path="/quotes" element={<Quotes />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
+          <Route path="/customers/:id" element={<CustomerDetail />} />
         </Route>
 
         <Route element={<AuthLayout />}>

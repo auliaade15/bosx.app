@@ -1,7 +1,7 @@
 import React from "react";
 import customerData from "../Customers.json";
 import PageHeader from "../components/PageHeader";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function CustomerCard() {
   const getLoyaltyBadgeClass = (loyalty) => {
@@ -20,18 +20,17 @@ export default function CustomerCard() {
   return (
     <div id="customers-container">
       <PageHeader title="Customers" breadcrumb={["Customers", "Customer List"]}>
-        <NavLink
-          to="/formcustomers"
-          className="bg-hijau text-white px-4 py-2 rounded-lg"
-        >
-          Add Button
+        <NavLink to="/formcustomers" className="bg-hijau text-white px-4 py-2 rounded-lg">
+          Add Customer
         </NavLink>
       </PageHeader>
+
       <div className="p-5 grid sm:grid-cols-1 md:grid-cols-2 gap-4">
         {customerData.map((item) => (
-          <div
+          <Link
+            to={`/customers/${item["Customer ID"]}`}
             key={item["Customer ID"]}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col space-y-2"
+            className="bg-white rounded-lg shadow-md p-6 flex flex-col space-y-2 hover:bg-gray-50 transition"
           >
             <h2 className="text-xl font-semibold text-gray-800">
               {item["Customer Name"]}
@@ -45,7 +44,7 @@ export default function CustomerCard() {
             >
               🏅 Loyalty: {item["Loyalty"]}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
