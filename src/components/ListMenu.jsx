@@ -35,21 +35,33 @@ export default function ListMenu() {
             Customers
           </NavLink>
         </li>
+        <li>
+          <NavLink id="menu-4" to="product" className={menuClass}>
+            <AiFillHeart className="mr-4 text-xl" />
+           Product
+          </NavLink>
+        </li>
+        <li>
+          <NavLink id="menu-5" to="reviews" className={menuClass}>
+            <AiFillHeart className="mr-4 text-xl" />
+            Reviews
+          </NavLink>
+        </li>
 
         <li>
-          <NavLink id="menu-4" to="error400" className={menuClass}>
+          <NavLink id="menu-6" to="error400" className={menuClass}>
             <BiErrorCircle className="mr-4 text-xl" />
             Error 400
           </NavLink>
         </li>
         <li>
-          <NavLink id="menu-5" to="error401" className={menuClass}>
+          <NavLink id="menu-7" to="error401" className={menuClass}>
             <BiError className="mr-4 text-xl" />
             Error 401
           </NavLink>
         </li>
         <li>
-          <NavLink id="menu-6" to="error403" className={menuClass}>
+          <NavLink id="menu-8" to="error403" className={menuClass}>
             <BiMessageSquareError className="mr-4 text-xl" />
             Error 403
           </NavLink>

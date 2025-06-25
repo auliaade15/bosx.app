@@ -35,7 +35,7 @@ export default function Header() {
           </span>
           <img
             id="profile-avatar"
-            src="https://avatar.iran.liara.run/public/28"
+            src="https://i.pinimg.com/736x/2e/dd/02/2edd02160b51797f7adb807a79d96d36.jpg"
             className="w-10 h-10 rounded-full"
           />
         </div>

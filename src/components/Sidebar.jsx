@@ -5,7 +5,9 @@ const Sidebar = () => {
     { name: "Dashboard", path: "/" },
     { name: "Orders", path: "/orders" },
     { name: "Customers", path: "/customers" },
-    { name: "Suppliers", path: "/suppliers"},
+    { name: "Suppliers", path: "/suppliers" },
+    { name: "Product", path: "/product" },
+    { name: "Reviews", path: "/reviews" },
     { name: "Error 400", path: "/error400" },
     { name: "Error 401", path: "/error401" },
     { name: "Error 403", path: "/error403" },
@@ -14,7 +16,7 @@ const Sidebar = () => {
   return (
     <aside className="w-64 h-screen bg-[#F8F9FD] p-6 flex flex-col">
       <div className="text-2xl font-bold mb-10">
-        <span className="text-blue-600">Fresh Market</span> 
+        <span className="text-blue-600">Budiman Swalayan</span>
       </div>
 
       <nav className="flex flex-col gap-3">

@@ -37,6 +37,9 @@ const FormCustomers = React.lazy(() => import("./pages/FormCustomer"));
 const Quotes = React.lazy(() => import("./pages/Quotes"));
 const OrderDetail = React.lazy(() => import("./pages/OrderDetail"));
 const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
+const Product = React.lazy(() => import("./pages/Product"));
+const Reviews = React.lazy(() => import("./pages/Reviews"));
+
 
 export default function App() {
   return (
@@ -55,6 +58,8 @@ export default function App() {
           <Route path="/quotes" element={<Quotes />} />
           <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/customers/:id" element={<CustomerDetail />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/reviews" element={<Reviews />} />
         </Route>
 
         <Route element={<AuthLayout />}>

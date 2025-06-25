@@ -167,6 +167,206 @@ export default function Dashboard() {
           </ul>
         </div>
       </div>
+
+      <div className="overflow-x-auto">
+        <table className="table">
+          {/* head */}
+          <thead className="bg-base-300 text-base-content">
+            <tr>
+              <th>No</th>
+              <th>Nama Produk</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Stok</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* row 1 */}
+            <tr className="bg-base-200">
+              <th>1</th>
+              <td>Minyak Goreng Bimoli 1L</td>
+              <td>Sembako</td>
+              <td>Rp18.000</td>
+              <td>120</td>
+            </tr>
+            {/* row 2 */}
+            <tr>
+              <th>2</th>
+              <td>Beras Sania 5kg</td>
+              <td>Sembako</td>
+              <td>Rp65.000</td>
+              <td>75</td>
+            </tr>
+            {/* row 3 */}
+            <tr className="bg-base-200">
+              <th>3</th>
+              <td>Sabun Cuci Piring Sunlight 750ml</td>
+              <td>Kebutuhan Rumah</td>
+              <td>Rp14.500</td>
+              <td>98</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul className="list bg-base-100 rounded-box shadow-md">
+        <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">
+          Produk Terlaris Minggu Ini
+        </li>
+
+        <li className="list-row flex items-center justify-between gap-4 p-2 border-b">
+          <div>
+            <img
+              className="size-10 rounded-box"
+              src="https://th.bing.com/th/id/OIP._NPxQSnRU5UUbZIp9VIAxgHaHa?w=163&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+              alt="Minyak Goreng"
+            />
+          </div>
+          <div className="flex-1">
+            <div>Minyak Goreng</div>
+            <div className="text-xs uppercase font-semibold opacity-60">
+              Bimoli
+            </div>
+          </div>
+          <button className="btn btn-square btn-ghost" title="Lihat Detail">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+              />
+            </svg>
+          </button>
+          <button
+            className="btn btn-square btn-ghost"
+            title="Tambah ke Keranjang"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.34 2.68A1 1 0 007 17h10m-6 4a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"
+              />
+            </svg>
+          </button>
+        </li>
+
+        <li className="list-row flex items-center justify-between gap-4 p-2 border-b">
+          <div>
+            <img
+              className="size-10 rounded-box"
+              src="https://th.bing.com/th/id/OIP.QVYNJf5UpTJJKQ3GF675KQHaHa?w=179&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+              alt="Beras"
+            />
+          </div>
+          <div className="flex-1">
+            <div>Beras 5 kg</div>
+            <div className="text-xs uppercase font-semibold opacity-60">
+              Sania
+            </div>
+          </div>
+          <button className="btn btn-square btn-ghost" title="Lihat Detail">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+              />
+            </svg>
+          </button>
+          <button
+            className="btn btn-square btn-ghost"
+            title="Tambah ke Keranjang"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.34 2.68A1 1 0 007 17h10m-6 4a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"
+              />
+            </svg>
+          </button>
+        </li>
+
+        <li className="list-row flex items-center justify-between gap-4 p-2">
+          <div>
+            <img
+              className="size-10 rounded-box"
+              src="https://th.bing.com/th/id/OIP.IZHE1osgzXL06CrtTWspqQHaHa"
+              alt="Sabun Cuci"
+            />
+          </div>
+          <div className="flex-1">
+            <div>Sabun Cuci Piring</div>
+            <div className="text-xs uppercase font-semibold opacity-60">
+              Sunlight
+            </div>
+          </div>
+          <button className="btn btn-square btn-ghost" title="Lihat Detail">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+              />
+            </svg>
+          </button>
+          <button
+            className="btn btn-square btn-ghost"
+            title="Tambah ke Keranjang"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-[1.2em]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.34 2.68A1 1 0 007 17h10m-6 4a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"
+              />
+            </svg>
+          </button>
+        </li>
+      </ul>
     </div>
   );
 }
