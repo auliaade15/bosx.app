@@ -1,36 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { reviewsAPI } from "../services/reviewsAPI";
-import AlertBox from "../components/AlertBox";
-import GenericTable from "../components/GenericTable";
 import { AiFillDelete } from "react-icons/ai";
-import Loading from "../components/Loading";
-import EmptyState from "../components/EmptyState";
+import { reviewsAPI } from "../services/reviewsAPI";
 
 export default function Reviews() {
   const [dataForm, setDataForm] = useState({
-    user: "",
-    review_text: "",
-    gambar: "",
+    nama: "",
+    ulasan: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [submitLoading, setSubmitLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [reviews, setReviews] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDataForm({ ...dataForm, [name]: value });
+    setDataForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const loadReviews = async () => {
     try {
       setLoading(true);
-      setError("");
       const data = await reviewsAPI.fetchReviews();
       setReviews(data);
-    } catch (err) {
-      setError("Gagal memuat data ulasan.");
+    } catch {
+      setError("Gagal memuat data review.");
     } finally {
       setLoading(false);
     }
@@ -46,16 +42,16 @@ export default function Reviews() {
       setSubmitLoading(true);
       setError("");
       setSuccess("");
-
       await reviewsAPI.createReview(dataForm);
       setSuccess("Review berhasil ditambahkan!");
-      setDataForm({ user: "", review_text: "", gambar: "" });
-      setTimeout(() => setSuccess(""), 3000);
+      setDataForm({ nama: "", ulasan: "" });
+      setShowModal(false);
       loadReviews();
-    } catch (err) {
+    } catch {
       setError("Gagal menyimpan review.");
     } finally {
       setSubmitLoading(false);
+      setTimeout(() => setSuccess(""), 3000);
     }
   };
 
@@ -64,115 +60,123 @@ export default function Reviews() {
     try {
       setLoading(true);
       await reviewsAPI.deleteReview(id);
-      setSuccess("Review berhasil dihapus!");
-      setTimeout(() => setSuccess(""), 3000);
+      setSuccess("Review berhasil dihapus.");
       loadReviews();
-    } catch (err) {
+    } catch {
       setError("Gagal menghapus review.");
     } finally {
       setLoading(false);
+      setTimeout(() => setSuccess(""), 3000);
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h2 className="text-3xl font-bold text-blue-800 mb-4">Review Produk</h2>
+    <div className="p-6 max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold text-gray-800 mb-6">
+        Manajemen Review
+      </h2>
 
-      {error && <AlertBox type="error">{error}</AlertBox>}
-      {success && <AlertBox type="success">{success}</AlertBox>}
-
-      <div className="bg-blue-50 rounded-2xl shadow-lg p-6 mb-8 border border-blue-100">
-        <h3 className="text-lg font-semibold text-blue-700 mb-4">
-          Tambah Review
-        </h3>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            name="user"
-            value={dataForm.user}
-            onChange={handleChange}
-            placeholder="Nama User"
-            required
-            className="w-full p-3 bg-white rounded-2xl border border-blue-200 focus:ring-2 focus:ring-blue-400"
-            disabled={submitLoading}
-          />
-          <textarea
-            name="review_text"
-            value={dataForm.review_text}
-            onChange={handleChange}
-            placeholder="Isi review"
-            required
-            rows="3"
-            className="w-full p-3 bg-white rounded-2xl border border-blue-200 resize-none focus:ring-2 focus:ring-blue-400"
-            disabled={submitLoading}
-          />
-          <input
-            type="text"
-            name="gambar"
-            value={dataForm.gambar}
-            onChange={handleChange}
-            placeholder="URL Gambar Produk"
-            required
-            className="w-full p-3 bg-white rounded-2xl border border-blue-200 focus:ring-2 focus:ring-blue-400"
-            disabled={submitLoading}
-          />
-          <button
-            type="submit"
-            disabled={submitLoading}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl transition"
-          >
-            {submitLoading ? "Mengirim..." : "Simpan Review"}
-          </button>
-        </form>
-      </div>
-
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mt-10 border border-blue-100">
-          <div className="px-6 py-4 bg-blue-100">
-            <h3 className="text-lg font-semibold text-blue-800">
-              Daftar Review ({reviews.length})
-            </h3>
-          </div>
-          {reviews.length === 0 ? (
-            <EmptyState text="Belum ada review." />
-          ) : (
-            <GenericTable
-              columns={["#", "User", "Review", "Gambar", "Aksi"]}
-              data={reviews}
-              renderRow={(r, index) => (
-                <>
-                  <td className="px-6 py-4 text-sm">{index + 1}</td>
-                  <td className="px-6 py-4 text-sm">{r.user}</td>
-                  <td className="px-6 py-4 text-sm max-w-xs">
-                    {r.review_text}
-                  </td>
-                  <td className="px-6 py-4">
-                    {r.gambar ? (
-                      <img
-                        src={r.gambar}
-                        alt="review"
-                        className="w-16 h-16 object-cover rounded-lg border border-blue-100"
-                      />
-                    ) : (
-                      <span className="text-blue-400 italic">Tidak ada</span>
-                    )}
-                  </td>
-                  <td className="px-6 py-4">
-                    <button
-                      onClick={() => handleDelete(r.id)}
-                      disabled={loading}
-                      title="Hapus"
-                    >
-                      <AiFillDelete className="text-red-500 text-xl hover:text-red-700 transition" />
-                    </button>
-                  </td>
-                </>
-              )}
-            />
-          )}
+      {error && (
+        <div className="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
         </div>
       )}
+      {success && (
+        <div className="bg-green-100 border border-green-300 text-green-700 px-4 py-3 rounded mb-4">
+          {success}
+        </div>
+      )}
+
+      <button
+        onClick={() => setShowModal(true)}
+        className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-md mb-6"
+      >
+        Tambah Review
+      </button>
+
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+            <h3 className="text-xl font-bold mb-4">Tambah Review</h3>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                name="nama"
+                value={dataForm.nama}
+                onChange={handleChange}
+                placeholder="Nama"
+                className="w-full p-2 border rounded"
+                required
+              />
+              <textarea
+                name="ulasan"
+                value={dataForm.ulasan}
+                onChange={handleChange}
+                placeholder="Isi Ulasan"
+                className="w-full p-2 border rounded"
+                rows="4"
+                required
+              />
+              <div className="flex justify-end space-x-2 pt-4">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 border rounded hover:bg-gray-100"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+                  disabled={submitLoading}
+                >
+                  {submitLoading ? "Menyimpan..." : "Simpan"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <div className="bg-white shadow-md rounded-xl overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full table-auto text-sm">
+            <thead className="bg-red-600 text-white">
+              <tr>
+                <th className="px-6 py-3 text-left font-medium">No</th>
+                <th className="px-6 py-3 text-left font-medium">Nama</th>
+                <th className="px-6 py-3 text-left font-medium">Ulasan</th>
+                <th className="px-6 py-3 text-left font-medium">Aksi</th>
+              </tr>
+            </thead>
+            <tbody className="text-gray-800">
+              {reviews.map((r, index) => (
+                <tr key={r.id} className="border-t hover:bg-gray-50">
+                  <td className="px-6 py-3">{index + 1}</td>
+                  <td className="px-6 py-3">{r.nama}</td>
+                  <td className="px-6 py-3 whitespace-pre-line max-w-sm">
+                    {r.ulasan}
+                  </td>
+                  <td className="px-6 py-3">
+                    <button
+                      onClick={() => handleDelete(r.id)}
+                      className="text-red-500 hover:text-red-700"
+                      title="Hapus Review"
+                      disabled={loading}
+                    >
+                      <AiFillDelete className="text-xl" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {reviews.length === 0 && !loading && (
+          <div className="text-center text-gray-500 py-6">
+            Belum ada review tersedia.
+          </div>
+        )}
+      </div>
     </div>
   );
 }

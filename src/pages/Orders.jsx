@@ -7,7 +7,10 @@ export default function OrderCard() {
   return (
     <div id="orders-container">
       <PageHeader title="Orders" breadcrumb={["Orders", "Order List"]}>
-        <NavLink to="/formorders" className="bg-hijau text-white px-4 py-2 rounded-lg">
+        <NavLink
+          to="/formorders"
+          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition"
+        >
           Add Order
         </NavLink>
       </PageHeader>
@@ -17,12 +20,20 @@ export default function OrderCard() {
           <Link
             key={order["Order ID"]}
             to={`/orders/${order["Order ID"]}`}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col space-y-2 hover:bg-gray-100 transition"
+            className="bg-white rounded-xl shadow-md p-6 flex flex-col space-y-2 hover:bg-red-50 transition border border-red-100"
           >
-            <h2 className="text-xl font-semibold">Order #{order["Order ID"]}</h2>
-            <p>Customer ID: {order["Customer ID"]}</p>
-            <p>Date: {order["Order Date"]}</p>
-            <p>Total: {order["Total Price"]}</p>
+            <h2 className="text-xl font-bold text-red-700">
+              Order #{order["Order ID"]}
+            </h2>
+            <p className="text-sm text-gray-600">
+              👤 Customer ID: {order["Customer ID"]}
+            </p>
+            <p className="text-sm text-gray-600">
+              🗓️ Date: {order["Order Date"]}
+            </p>
+            <p className="text-sm text-gray-600">
+              💵 Total: Rp {parseInt(order["Total Price"]).toLocaleString()}
+            </p>
             <span
               className={`px-3 py-1 text-sm rounded-full font-medium w-max ${
                 order["Status"] === "Completed"
@@ -32,7 +43,7 @@ export default function OrderCard() {
                   : "bg-red-100 text-red-800"
               }`}
             >
-              {order["Status"]}
+              ⛳ {order["Status"]}
             </span>
           </Link>
         ))}

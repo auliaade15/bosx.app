@@ -30,13 +30,12 @@ const pieData = [
   { name: "Morning", value: 28 },
 ];
 
-const COLORS = ["#5D5FEF", "#A0A3FF", "#D1D3FF"];
+const COLORS = ["#EF4444", "#FCA5A5", "#FECACA"];
 
 export default function Dashboard() {
   const [advice, setAdvice] = useState("");
   const [error, setError] = useState("");
 
-  // penggunaan API
   useEffect(() => {
     axios
       .get("https://api.adviceslip.com/advice")
@@ -52,7 +51,6 @@ export default function Dashboard() {
       });
   }, []);
 
-  // tampilan error
   const errorInfo = error ? (
     <div className="bg-red-200 mb-5 p-5 text-sm font-light text-gray-600 rounded flex items-center">
       <BsFillExclamationDiamondFill className="text-red-600 me-2 text-lg" />
@@ -63,38 +61,29 @@ export default function Dashboard() {
   return (
     <div className="p-6 space-y-6">
       {errorInfo}
-      {/* Menampilkan quotes */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm text-center">
-        <h3 className="font-medium mb-4">Quotes of the day</h3>
-        <p className="text-gray-700 italic">"{advice}"</p>
-      </div>
 
-      {/* Revenue */}
       <div className="bg-white rounded-2xl p-6 shadow-sm">
-        <h2 className="text-gray-500 text-sm">Revenue</h2>
+        <h2 className="text-gray-500 text-sm">Total Transaksi</h2>
         <div className="text-3xl font-semibold text-[#2D2F39] mt-2">
-          IDR 7.852.000
+          IDR 70.852.000
         </div>
         <div className="text-green-500 text-sm mt-1">+2.1% vs last week</div>
       </div>
 
-      {/* Charts */}
       <div className="grid grid-cols-3 gap-6">
-        {/* Sales Bar Chart */}
         <div className="bg-white rounded-2xl p-6 shadow-sm col-span-2">
-          <h3 className="font-medium mb-4">Sales</h3>
+          <h3 className="font-medium mb-4">Statistik Pembelian</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={salesData}>
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="last6days" fill="#5D5FEF" />
-              <Bar dataKey="lastWeek" fill="#A0A3FF" />
+              <Bar dataKey="last6days" fill="#EF4444" />
+              <Bar dataKey="lastWeek" fill="#FCA5A5" />
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        {/* Order Time Pie Chart */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h3 className="font-medium mb-4">Order Time</h3>
           <ResponsiveContainer width="100%" height={200}>
@@ -117,26 +106,24 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Rating and Most Ordered */}
       <div className="grid grid-cols-2 gap-6">
-        {/* Rating */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h3 className="font-medium mb-4">Stock Health</h3>
           <div className="flex gap-4 justify-center">
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#A0E3F2] rounded-full flex items-center justify-center text-lg font-bold">
+              <div className="w-20 h-20 bg-[#FECACA] rounded-full flex items-center justify-center text-lg font-bold">
                 92%
               </div>
               <div className="mt-2 text-sm">Freshness</div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#CDB4DB] rounded-full flex items-center justify-center text-lg font-bold">
-                85%
+              <div className="w-20 h-20 bg-[#FCA5A5] rounded-full flex items-center justify-center text-lg font-bold">
+                87%
               </div>
               <div className="mt-2 text-sm">Packaging</div>
             </div>
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 bg-[#FDA4AF] rounded-full flex items-center justify-center text-lg font-bold">
+              <div className="w-20 h-20 bg-[#EF4444] rounded-full flex items-center justify-center text-lg font-bold">
                 85%
               </div>
               <div className="mt-2 text-sm">Stock Quality</div>
@@ -144,7 +131,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Best Selling Products */}
         <div className="bg-white rounded-2xl p-6 shadow-sm">
           <h3 className="font-medium mb-4">Best Selling Products</h3>
           <ul className="space-y-3">
@@ -209,9 +195,10 @@ export default function Dashboard() {
         </table>
       </div>
 
+      {/* rekomendasi produk */}
       <ul className="list bg-base-100 rounded-box shadow-md">
         <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">
-          Produk Terlaris Minggu Ini
+          Produk Rekomendasi
         </li>
 
         <li className="list-row flex items-center justify-between gap-4 p-2 border-b">
@@ -367,6 +354,78 @@ export default function Dashboard() {
           </button>
         </li>
       </ul>
+
+      {/* Laporan Penjualan Mingguan */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm">
+        <h3 className="font-medium mb-4">Laporan Penjualan Mingguan</h3>
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-sm text-gray-700">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="py-2 px-4 text-left">Tanggal</th>
+                <th className="py-2 px-4 text-left">Jumlah Transaksi</th>
+                <th className="py-2 px-4 text-left">Total Penjualan (Rp)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { date: "2025-06-22", transactions: 35, total: 850000 },
+                { date: "2025-06-23", transactions: 28, total: 700000 },
+                { date: "2025-06-24", transactions: 42, total: 1100000 },
+                { date: "2025-06-25", transactions: 30, total: 760000 },
+                { date: "2025-06-26", transactions: 38, total: 920000 },
+                { date: "2025-06-27", transactions: 25, total: 600000 },
+                { date: "2025-06-28", transactions: 40, total: 1025000 },
+              ].map((item, idx, arr) => {
+                const totalTransactions = arr.reduce(
+                  (sum, t) => sum + t.transactions,
+                  0
+                );
+                const totalRevenue = arr.reduce((sum, t) => sum + t.total, 0);
+
+                return idx < arr.length ? (
+                  <tr key={idx} className="border-b">
+                    <td className="py-2 px-4">{item.date}</td>
+                    <td className="py-2 px-4">{item.transactions}</td>
+                    <td className="py-2 px-4">
+                      {item.total.toLocaleString("id-ID")}
+                    </td>
+                  </tr>
+                ) : null;
+              })}
+              <tr className="font-semibold bg-gray-50">
+                <td className="py-2 px-4">Total</td>
+                <td className="py-2 px-4">
+                  {[
+                    { transactions: 35 },
+                    { transactions: 28 },
+                    { transactions: 42 },
+                    { transactions: 30 },
+                    { transactions: 38 },
+                    { transactions: 25 },
+                    { transactions: 40 },
+                  ]
+                    .reduce((sum, t) => sum + t.transactions, 0)
+                    .toLocaleString("id-ID")}
+                </td>
+                <td className="py-2 px-4">
+                  {[
+                    { total: 850000 },
+                    { total: 700000 },
+                    { total: 1100000 },
+                    { total: 760000 },
+                    { total: 920000 },
+                    { total: 600000 },
+                    { total: 1025000 },
+                  ]
+                    .reduce((sum, t) => sum + t.total, 0)
+                    .toLocaleString("id-ID")}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

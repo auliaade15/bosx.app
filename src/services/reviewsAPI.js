@@ -1,39 +1,48 @@
+// Import library axios untuk melakukan HTTP request
 import axios from "axios";
 
-const API_URL = "https://qfmewlqgxlsifxwctcms.supabase.co/rest/v1/reviews";
-const API_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFmbWV3bHFneGxzaWZ4d2N0Y21zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5NzA2MjYsImV4cCI6MjA2NTU0NjYyNn0.tzbBhfOp8OAK2JADi05NiLY7s67oaR-K41BJ2QD7x5E";
+// URL endpoint REST API Supabase (table: reviews)
+const API_URL = "https://iunfuggxwfqqbdhpjuef.supabase.co/rest/v1/Reviews";
 
+// API Key yang digunakan untuk otentikasi ke Supabase
+const API_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1bmZ1Z2d4d2ZxcWJkaHBqdWVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTA4MzM2NTIsImV4cCI6MjA2NjQwOTY1Mn0.RlUys65WokFLdtHGQMJtAuFpLt8YQ0H7_r9evsJBJAg";
+
+// Header default untuk semua request
 const baseHeaders = {
-  apikey: API_KEY,
-  Authorization: `Bearer ${API_KEY}`,
-  "Content-Type": "application/json",
+  apikey: API_KEY, // API Key
+  Authorization: `Bearer ${API_KEY}`, // Token Bearer untuk otorisasi Supabase
+  "Content-Type": "application/json", // Tipe konten yang dikirim (JSON)
 };
 
+// Objek `reviewsAPI` yang berisi fungsi-fungsi untuk berinteraksi dengan tabel reviews
 export const reviewsAPI = {
+  // Fungsi untuk mengambil semua data review dari Supabase
   async fetchReviews() {
-    const response = await axios.get(API_URL, { headers: baseHeaders });
-    return response.data;
+    const response = await axios.get(API_URL, { headers: baseHeaders }); // GET request ke endpoint reviews
+    return response.data; // Mengembalikan data review dalam bentuk array
   },
 
+  // Fungsi untuk menambahkan review baru
   async createReview(data) {
     const response = await axios.post(
-      API_URL,
-      [data], // ← Harus dikirim sebagai array!
+      API_URL, // Endpoint tujuan POST
+      [data], // ← Supabase REST API mengharuskan data dikirim dalam bentuk array
       {
         headers: {
-          ...baseHeaders,
-          Prefer: "return=representation", // ← WAJIB agar respon berhasil
+          ...baseHeaders, // Gunakan header dasar
+          Prefer: "return=representation", // ← WAJIB: supaya Supabase mengembalikan data yang disimpan
         },
       }
     );
-    return response.data;
+    return response.data; // Mengembalikan data hasil create (berupa objek review)
   },
 
+  // Fungsi untuk menghapus review berdasarkan ID
   async deleteReview(id) {
     const response = await axios.delete(`${API_URL}?id=eq.${id}`, {
-      headers: baseHeaders,
+      headers: baseHeaders, // Kirim header default
     });
-    return response.data;
+    return response.data; // Mengembalikan hasil (biasanya kosong / metadata)
   },
 };

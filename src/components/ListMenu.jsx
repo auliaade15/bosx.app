@@ -23,24 +23,28 @@ export default function ListMenu() {
             Dashboard
           </NavLink>
         </li>
+
         <li>
           <NavLink id="menu-2" to="orders" className={menuClass}>
             <FaList className="mr-4 text-xl" />
             Orders
           </NavLink>
         </li>
+
         <li>
           <NavLink id="menu-3" to="customers" className={menuClass}>
             <AiFillHeart className="mr-4 text-xl" />
             Customers
           </NavLink>
         </li>
+
         <li>
           <NavLink id="menu-4" to="product" className={menuClass}>
             <AiFillHeart className="mr-4 text-xl" />
-           Product
+            Product
           </NavLink>
         </li>
+
         <li>
           <NavLink id="menu-5" to="reviews" className={menuClass}>
             <AiFillHeart className="mr-4 text-xl" />
@@ -48,6 +52,21 @@ export default function ListMenu() {
           </NavLink>
         </li>
 
+        <li>
+          <NavLink id="menu-5" to="artikel" className={menuClass}>
+            <AiFillHeart className="mr-4 text-xl" />
+            Artikel
+          </NavLink>
+        </li>
+        {/* 
+        <li>
+          <NavLink id="menu-5" to="prediksi" className={menuClass}>
+            <AiFillHeart className="mr-4 text-xl" />
+            Prediksi
+          </NavLink>
+        </li> */}
+
+        {/* 
         <li>
           <NavLink id="menu-6" to="error400" className={menuClass}>
             <BiErrorCircle className="mr-4 text-xl" />
@@ -65,7 +84,7 @@ export default function ListMenu() {
             <BiMessageSquareError className="mr-4 text-xl" />
             Error 403
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

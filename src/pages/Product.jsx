@@ -78,13 +78,14 @@ export default function Product() {
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <h2 className="text-3xl font-bold text-gray-800 mb-4">Produk</h2>
+      <h2 className="text-3xl font-bold text-red-700 mb-4">Produk</h2>
 
       {error && <AlertBox type="error">{error}</AlertBox>}
       {success && <AlertBox type="success">{success}</AlertBox>}
 
-      <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-        <h3 className="text-lg font-semibold text-gray-800 mb-4">
+      {/* Form Tambah Produk */}
+      <div className="bg-red-50 border border-red-100 rounded-2xl shadow-md p-6 mb-8">
+        <h3 className="text-lg font-semibold text-red-700 mb-4">
           Tambah Produk
         </h3>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -94,7 +95,7 @@ export default function Product() {
             onChange={handleChange}
             placeholder="Nama Produk"
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200"
+            className="w-full p-3 bg-white rounded-2xl border border-red-200 focus:ring-1 focus:ring-red-400"
             disabled={loadingSubmit}
           />
           <input
@@ -104,7 +105,7 @@ export default function Product() {
             placeholder="Harga"
             required
             type="number"
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200"
+            className="w-full p-3 bg-white rounded-2xl border border-red-200 focus:ring-1 focus:ring-red-400"
             disabled={loadingSubmit}
           />
           <input
@@ -114,7 +115,7 @@ export default function Product() {
             placeholder="Stok"
             required
             type="number"
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200"
+            className="w-full p-3 bg-white rounded-2xl border border-red-200 focus:ring-1 focus:ring-red-400"
             disabled={loadingSubmit}
           />
           <input
@@ -123,22 +124,23 @@ export default function Product() {
             onChange={handleChange}
             placeholder="Status (Tersedia / Habis)"
             required
-            className="w-full p-3 bg-gray-50 rounded-2xl border border-gray-200"
+            className="w-full p-3 bg-white rounded-2xl border border-red-200 focus:ring-1 focus:ring-red-400"
             disabled={loadingSubmit}
           />
           <button
             type="submit"
             disabled={loadingSubmit}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-2xl"
+            className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-2xl transition"
           >
             {loadingSubmit ? "Menyimpan..." : "Simpan Produk"}
           </button>
         </form>
       </div>
 
+      {/* Tabel Produk */}
       <div className="bg-white rounded-2xl shadow-lg overflow-hidden mt-10">
-        <div className="px-6 py-4">
-          <h3 className="text-lg font-semibold">
+        <div className="px-6 py-4 border-b border-red-100">
+          <h3 className="text-lg font-semibold text-red-700">
             Daftar Produk ({products.length})
           </h3>
         </div>
@@ -152,9 +154,19 @@ export default function Product() {
               <>
                 <td className="px-6 py-4">{index + 1}</td>
                 <td className="px-6 py-4">{p.nama}</td>
-                <td className="px-6 py-4">Rp {p.harga}</td>
+                <td className="px-6 py-4">Rp {p.harga.toLocaleString()}</td>
                 <td className="px-6 py-4">{p.stock}</td>
-                <td className="px-6 py-4">{p.status}</td>
+                <td className="px-6 py-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      p.status.toLowerCase() === "tersedia"
+                        ? "bg-green-100 text-green-600"
+                        : "bg-gray-100 text-gray-600"
+                    }`}
+                  >
+                    {p.status}
+                  </span>
+                </td>
                 <td className="px-6 py-4">
                   <button
                     onClick={() => handleDelete(p.id)}

@@ -33,13 +33,17 @@ const Error400 = React.lazy(() => import("./pages/Error400"));
 const Error401 = React.lazy(() => import("./pages/Error401"));
 const Error403 = React.lazy(() => import("./pages/Error403"));
 const FormOrders = React.lazy(() => import("./pages/FormOrders"));
-const FormCustomers = React.lazy(() => import("./pages/FormCustomer"));
+// const FormCustomers = React.lazy(() => import("./pages/FormCustomer"));
 const Quotes = React.lazy(() => import("./pages/Quotes"));
 const OrderDetail = React.lazy(() => import("./pages/OrderDetail"));
 const CustomerDetail = React.lazy(() => import("./pages/CustomerDetail"));
 const Product = React.lazy(() => import("./pages/Product"));
 const Reviews = React.lazy(() => import("./pages/Reviews"));
-
+const Artikel = React.lazy(() => import("./pages/Artikel"));
+const Profile = React.lazy(() => import("./pages/Profile"));
+const Settings = React.lazy(() => import("./pages/Settings"));
+const FormCustomer = React.lazy(() => import("./pages/FormCustomer"));
+// const Prediksi = React.lazy(() => import("./pages/Prediksi"));
 
 export default function App() {
   return (
@@ -60,6 +64,11 @@ export default function App() {
           <Route path="/customers/:id" element={<CustomerDetail />} />
           <Route path="/product" element={<Product />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/artikel" element={<Artikel />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/FormCustomer" element={<FormCustomer />} />
+          {/* <Route path="/prediksi" element={<Prediksi />} /> */}
         </Route>
 
         <Route element={<AuthLayout />}>

@@ -9,7 +9,7 @@ export default function CustomerCard() {
       case "gold":
         return "bg-yellow-100 text-yellow-800";
       case "silver":
-        return "bg-gray-100 text-gray-700";
+        return "bg-red-100 text-red-700"; // diubah jadi tema merah
       case "bronze":
         return "bg-orange-100 text-orange-800";
       default:
@@ -20,8 +20,11 @@ export default function CustomerCard() {
   return (
     <div id="customers-container">
       <PageHeader title="Customers" breadcrumb={["Customers", "Customer List"]}>
-        <NavLink to="/formcustomers" className="bg-hijau text-white px-4 py-2 rounded-lg">
-          Add Customer
+        <NavLink
+          to="/formcustomers"
+          className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition"
+        >
+          Tambah Customer
         </NavLink>
       </PageHeader>
 
@@ -30,7 +33,7 @@ export default function CustomerCard() {
           <Link
             to={`/customers/${item["Customer ID"]}`}
             key={item["Customer ID"]}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col space-y-2 hover:bg-gray-50 transition"
+            className="bg-white rounded-xl shadow hover:shadow-lg p-6 flex flex-col space-y-2 hover:bg-red-50 transition"
           >
             <h2 className="text-xl font-semibold text-gray-800">
               {item["Customer Name"]}
