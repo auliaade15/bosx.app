@@ -16,25 +16,24 @@ export default function Profile() {
           <p className="text-sm text-gray-500">aulia@gmail.com</p>
         </div>
 
-
         <ul className="space-y-3">
-          <li className="flex items-center gap-2 text-red-600 font-semibold cursor-pointer bg-red-50 p-2 rounded-lg">
+          <li className="flex items-center gap-2 text-green-700 font-semibold cursor-pointer bg-green-50 p-2 rounded-lg">
             <FiUser />
             <span>Edit Profil</span>
           </li>
-          <li className="flex items-center gap-2 text-gray-700 hover:text-red-600 hover:bg-red-50 p-2 rounded-lg cursor-pointer">
+          <li className="flex items-center gap-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-lg cursor-pointer">
             <FiMapPin />
             <span>Alamat Toko</span>
           </li>
-          <li className="flex items-center gap-2 text-gray-700 hover:text-red-600 hover:bg-red-50 p-2 rounded-lg cursor-pointer">
+          <li className="flex items-center gap-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-lg cursor-pointer">
             <FiActivity />
             <span>Aktivitas</span>
           </li>
-          <li className="flex items-center gap-2 text-gray-700 hover:text-red-600 hover:bg-red-50 p-2 rounded-lg cursor-pointer">
+          <li className="flex items-center gap-2 text-gray-700 hover:text-green-700 hover:bg-green-50 p-2 rounded-lg cursor-pointer">
             <FiSettings />
             <span>Pengaturan Sistem</span>
           </li>
-          <li className="flex items-center gap-2 text-red-600 cursor-pointer p-2 mt-6 hover:bg-red-50 rounded-lg">
+          <li className="flex items-center gap-2 text-green-700 cursor-pointer p-2 mt-6 hover:bg-green-50 rounded-lg">
             <FiLogOut />
             <span>Keluar</span>
           </li>
@@ -44,17 +43,17 @@ export default function Profile() {
       {/* Main Content */}
       <main className="flex-1 flex flex-col gap-6">
         {/* Header Info Box */}
-        <div className="bg-red-600 text-white rounded-2xl p-6 shadow flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="bg-green-600 text-white rounded-2xl p-6 shadow flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-sm">Role</h3>
+            <h3 className="text-sm opacity-90">Role</h3>
             <h2 className="text-2xl font-bold">Administrator</h2>
           </div>
           <div className="text-center md:text-left">
-            <h3 className="text-sm">Jumlah Pengguna</h3>
+            <h3 className="text-sm opacity-90">Jumlah Pengguna</h3>
             <p className="text-2xl font-bold">42</p>
           </div>
           <div className="text-center md:text-left">
-            <h3 className="text-sm">Toko Aktif</h3>
+            <h3 className="text-sm opacity-90">Toko Aktif</h3>
             <p className="text-2xl font-bold">3</p>
           </div>
         </div>
@@ -68,7 +67,7 @@ export default function Profile() {
               <input
                 type="text"
                 defaultValue="Aulia"
-                className="w-full mt-1 border border-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500 p-2 rounded-lg transition"
+                className="w-full mt-1 border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 p-2 rounded-lg transition"
               />
             </div>
             <div>
@@ -76,14 +75,14 @@ export default function Profile() {
               <input
                 type="text"
                 defaultValue="Ade"
-                className="w-full mt-1 border border-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500 p-2 rounded-lg transition"
+                className="w-full mt-1 border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 p-2 rounded-lg transition"
               />
             </div>
             <div>
               <label className="text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
-                defaultValue="aulia@swalayan.com"
+                defaultValue="aulia@gmail.com"
                 disabled
                 className="w-full mt-1 border border-gray-200 bg-gray-100 cursor-not-allowed p-2 rounded-lg"
               />
@@ -93,13 +92,13 @@ export default function Profile() {
               <input
                 type="text"
                 defaultValue="081234567890"
-                className="w-full mt-1 border border-gray-300 focus:border-red-500 focus:ring-1 focus:ring-red-500 p-2 rounded-lg transition"
+                className="w-full mt-1 border border-gray-300 focus:border-green-500 focus:ring-1 focus:ring-green-500 p-2 rounded-lg transition"
               />
             </div>
           </form>
 
           <div className="text-right mt-6">
-            <button className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-lg transition">
+            <button className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-2 rounded-lg transition">
               Simpan Perubahan
             </button>
           </div>

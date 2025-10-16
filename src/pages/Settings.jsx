@@ -26,8 +26,8 @@ export default function Settings() {
 
   return (
     <div className="max-w-3xl mx-auto mt-10 px-4">
-      <div className="bg-white border border-red-200 rounded-2xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-red-700 mb-6 text-center">
+      <div className="bg-white border border-green-200 rounded-2xl shadow-lg p-8">
+        <h1 className="text-3xl font-bold text-green-700 mb-6 text-center">
           Pengaturan Admin Supermarket
         </h1>
 
@@ -40,21 +40,21 @@ export default function Settings() {
         <form onSubmit={handleSave} className="space-y-6">
           {/* Nama Toko */}
           <div>
-            <label className="block text-sm font-semibold text-red-700 mb-1">
+            <label className="block text-sm font-semibold text-green-700 mb-1">
               Nama Toko
             </label>
             <input
               type="text"
               value={storeName}
               onChange={(e) => setStoreName(e.target.value)}
-              className="w-full border border-red-300 rounded-lg p-3 focus:ring-2 focus:ring-red-400"
+              className="w-full border border-green-300 rounded-lg p-3 focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
 
           {/* Jam Operasional */}
           <div>
-            <label className="block text-sm font-semibold text-red-700 mb-1">
+            <label className="block text-sm font-semibold text-green-700 mb-1">
               Jam Operasional
             </label>
             <input
@@ -62,27 +62,27 @@ export default function Settings() {
               value={openingHours}
               onChange={(e) => setOpeningHours(e.target.value)}
               placeholder="Contoh: 07:00 - 22:00"
-              className="w-full border border-red-300 rounded-lg p-3 focus:ring-2 focus:ring-red-400"
+              className="w-full border border-green-300 rounded-lg p-3 focus:ring-2 focus:ring-green-400"
               required
             />
           </div>
 
           {/* Metode Pembayaran */}
           <div>
-            <label className="block text-sm font-semibold text-red-700 mb-2">
+            <label className="block text-sm font-semibold text-green-700 mb-2">
               Metode Pembayaran Aktif
             </label>
             <div className="grid grid-cols-2 gap-2">
               {Object.keys(paymentMethods).map((method) => (
                 <label
                   key={method}
-                  className="flex items-center space-x-2 text-red-700"
+                  className="flex items-center space-x-2 text-green-700"
                 >
                   <input
                     type="checkbox"
                     checked={paymentMethods[method]}
                     onChange={() => handleTogglePayment(method)}
-                    className="text-red-600"
+                    className="text-green-600 focus:ring-green-500"
                   />
                   <span className="capitalize">{method}</span>
                 </label>
@@ -94,9 +94,9 @@ export default function Settings() {
           <div className="text-center pt-4">
             <button
               type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 font-semibold rounded-lg transition"
+              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 font-semibold rounded-lg transition"
             >
-              Simpan Pengaturan
+             Simpan Pengaturan
             </button>
           </div>
         </form>

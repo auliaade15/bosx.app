@@ -9,12 +9,11 @@ const Sidebar = () => {
     { name: "Product", path: "/product" },
     { name: "Reviews", path: "/reviews" },
     { name: "Artikel", path: "/artikel" },
-    // Tambahkan Guest Page sebagai item biasa
-    {
-      name: "Guest Page",
-      path: "https://url-projectuas.vercel.app/",
-      external: true,
-    },
+    // {
+    //   name: "Guest Page",
+    //   path: "https://url-projectuas.vercel.app/",
+    //   external: true,
+    // },
   ];
 
   return (
@@ -22,13 +21,11 @@ const Sidebar = () => {
       {/* Logo dan Nama Brand */}
       <div className="flex items-center gap-3 mb-10">
         <img
-          src="/budiman.png"
+          src="/skupy logo.jpg"
           alt="Logo"
           className="w-10 h-10 object-contain rounded-full"
         />
-        <span className="text-2xl font-bold text-red-600">
-          Budiman Swalayan
-        </span>
+        <span className="text-2xl font-bold text-green-600">Skupy</span>
       </div>
 
       {/* Navigasi Menu */}
@@ -40,7 +37,7 @@ const Sidebar = () => {
               href={menu.path}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-red-600 transition-all"
+              className="flex items-center px-4 py-2 rounded-lg text-sm font-medium text-gray-500 hover:bg-green-100 hover:text-green-600 transition-all"
             >
               {menu.name}
             </a>
@@ -51,8 +48,8 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   isActive
-                    ? "bg-red-100 text-red-600"
-                    : "text-gray-500 hover:bg-gray-100 hover:text-red-600"
+                    ? "bg-green-100 text-green-600"
+                    : "text-gray-500 hover:bg-green-100 hover:text-green-600"
                 }`
               }
             >
@@ -64,7 +61,7 @@ const Sidebar = () => {
 
       {/* Tombol Kembali */}
       <button
-        className="mt-auto bg-red-100 rounded-lg p-4 text-center text-sm text-red-700"
+        className="mt-auto bg-green-100 rounded-lg p-4 text-center text-sm text-green-700 hover:bg-green-200 transition-all"
         onClick={() => alert("Ingin Kembali?")}
       >
         Kembali ke Home
