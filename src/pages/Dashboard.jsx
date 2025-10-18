@@ -5,8 +5,8 @@ const Dashboard = () => {
   const products = [
     { id: 1, img: "/img/produk1.png", name: "Custom Jersey" },
     { id: 2, img: "/img/produk9.png", name: "Custom Hijab" },
-    { id: 3, img: "/img/produk3.png", name: "Totebag" },
-    { id: 4, img: "/img/produk12.png", name: "Custom Mukena" },
+    { id: 3, img: "/img/produk6.png", name: "Custom Kaos Polo" },
+    { id: 4, img: "/img/produk8.png", name: "Custom Kemeja" },
   ];
 
   return (
@@ -18,9 +18,9 @@ const Dashboard = () => {
             New Arrivals
           </p>
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-white">
-            NEW STYLE
+            YOUR PRINTING
             <br />
-            <span className="text-[#FFD700] font-normal">FOR PRINT</span>
+            <span className="text-[#FFD700] font-normal"> SOLUTION</span>
           </h1>
           <p className="mt-6 italic text-gray-300 text-base">
             Transform your imagination into stunning prints — high quality and
@@ -220,6 +220,30 @@ const Dashboard = () => {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* ✅ Tambahan: Metode Pembayaran */}
+        <div className="mt-10 border-t border-[#333] pt-8 text-center">
+          <h3 className="text-[#FFD700] font-semibold text-lg mb-4">
+            Metode Pembayaran
+          </h3>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-gray-300">
+            <img
+              src="/img/bca.png"
+              alt="Bank BCA"
+              className="w-20 md:w-24 object-contain"
+            />
+            <div className="text-center md:text-left">
+              <p className="font-semibold"> Bank BCA </p>
+              <p> A/N : Hardha Perdana </p>
+              <p>
+                No. Rekening :{" "}
+                <span className="text-[#FFD700] font-semibold">
+                  2065033222
+                </span>
+              </p>
+            </div>
           </div>
         </div>
 

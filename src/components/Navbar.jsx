@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart, Search } from "lucide-react";
+import { ShoppingCart, Search, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -30,7 +31,16 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Menu Tengah */}
+        {/* Tombol Hamburger (muncul di HP) */}
+        <button
+          className="md:hidden text-[#FFD700] text-2xl focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Menu Tengah (Desktop) */}
         <ul className="hidden md:flex space-x-10">
           {menuItems.map((item) => (
             <li key={item.name}>
@@ -49,7 +59,7 @@ const Navbar = () => {
         </ul>
 
         {/* Icon kanan */}
-        <div className="flex items-center space-x-5">
+        <div className="hidden md:flex items-center space-x-5">
           <button
             onClick={() => navigate("/cart")}
             className="hover:text-[#FFD700] transition duration-200"
@@ -66,6 +76,53 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Menu Mobile */}
+      {isOpen && (
+        <div className="md:hidden bg-[#111] border-t border-[#333] mt-2">
+          <ul className="flex flex-col items-center py-4 space-y-4 text-base font-medium">
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  to={item.path}
+                  onClick={() => setIsOpen(false)} // Tutup menu setelah klik
+                  className={`block px-4 py-2 ${
+                    location.pathname === item.path
+                      ? "text-[#FFD700]"
+                      : "text-gray-300 hover:text-[#FFD700]"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+
+            {/* Icon kanan di versi mobile */}
+            <div className="flex items-center space-x-6 pt-4 border-t border-[#333] mt-2">
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate("/cart");
+                }}
+                className="hover:text-[#FFD700] transition duration-200"
+                title="Keranjang Belanja"
+              >
+                <ShoppingCart size={22} />
+              </button>
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  navigate("/search");
+                }}
+                className="hover:text-[#FFD700] transition duration-200"
+                title="Cari Produk"
+              >
+                <Search size={22} />
+              </button>
+            </div>
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };

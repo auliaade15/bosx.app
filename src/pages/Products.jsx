@@ -9,53 +9,53 @@ const Products = () => {
       description: "Desain jersey sesuai keinginanmu dengan bahan premium.",
       image: "/img/produk1.png",
     },
-    {
+     {
       id: 2,
-      name: "Tote Bag Printing",
-      description: "Tote bag unik dan ramah lingkungan dengan desain custom.",
-      image: "/img/produk3.png",
-    },
-    {
-      id: 3,
-      name: "Custom Hijab Syar'i",
-      description:
-        "Hijab syar'i dengan motif dan warna sesuai seleramu, nyaman dipakai dan elegan.",
-      image: "/img/produk2.png",
-    },
-    {
-      id: 4,
-      name: "Sling & Waist Bag",
-      description:
-        "Tas selempang dan pinggang dengan desain modern dan bahan tahan lama untuk gaya kasualmu.",
-      image: "/img/produk4.png",
-    },
-    {
-      id: 5,
-      name: "Pouch & Laptop Case",
-      description:
-        "Pouch dan case laptop elegan untuk melindungi barangmu dengan tampilan stylish.",
-      image: "/img/produk5.png",
-    },
-    {
-      id: 6,
       name: "Custom Kaos Polo",
       description:
         "Kaos polo dengan desain bordir atau sablon custom, cocok untuk seragam atau promosi.",
       image: "/img/produk6.png",
     },
     {
-      id: 7,
+      id: 3,
       name: "Custom Kaos DTF",
       description:
         "Kaos DTF printing dengan warna tajam dan tahan lama, ideal untuk bisnis atau komunitas.",
       image: "/img/produk7.png",
     },
     {
-      id: 8,
+      id: 4,
       name: "Custom Kemeja / Seragam",
       description:
         "Kemeja dan seragam custom profesional untuk perusahaan, organisasi, atau event.",
       image: "/img/produk8.png",
+    },
+    {
+      id: 5,
+      name: "Tote Bag Printing",
+      description: "Tote bag unik dan ramah lingkungan dengan desain custom.",
+      image: "/img/produk3.png",
+    },
+    {
+      id: 6,
+      name: "Custom Hijab Syar'i",
+      description:
+        "Hijab syar'i dengan motif dan warna sesuai seleramu, nyaman dipakai dan elegan.",
+      image: "/img/produk2.png",
+    },
+    {
+      id: 7,
+      name: "Sling & Waist Bag",
+      description:
+        "Tas selempang dan pinggang dengan desain modern dan bahan tahan lama untuk gaya kasualmu.",
+      image: "/img/produk4.png",
+    },
+    {
+      id: 8,
+      name: "Pouch & Laptop Case",
+      description:
+        "Pouch dan case laptop elegan untuk melindungi barangmu dengan tampilan stylish.",
+      image: "/img/produk5.png",
     },
     {
       id: 9,

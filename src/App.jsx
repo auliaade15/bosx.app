@@ -40,8 +40,8 @@ export default function App() {
           <Route path="/collection" element={<Collection />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} /> {/* ✅ Route keranjang */}
-          <Route path="/search" element={<Search />} /> {/* ✅ Route pencarian */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/search" element={<Search />} />
           <Route path="*" element={<NotFound />} />
         </Route>
 

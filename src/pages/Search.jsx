@@ -25,30 +25,30 @@ export default function Search() {
   );
 
   return (
-    <section className="min-h-screen bg-[#0b0b0b] text-white px-8 py-20 flex flex-col items-center">
+    <section className="min-h-screen bg-[#0b0b0b] text-white px-6 py-20 flex flex-col items-center">
       {/* Judul */}
-      <h1 className="text-5xl font-extrabold text-[#FFD700] mb-12 text-center drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] tracking-wide">
-        Pencarian Produk 🔍
+      <h1 className="text-4xl md:text-5xl font-bold text-[#FFD700] mb-10 text-center tracking-wide">
+        Pencarian Produk
       </h1>
 
       {/* Input Pencarian */}
-      <div className="relative w-full max-w-2xl mb-10">
+      <div className="relative w-full max-w-2xl mb-12">
         <input
           type="text"
-          placeholder="Ketik nama produk yang ingin kamu cari..."
+          placeholder="Cari produk yang kamu inginkan..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full px-6 py-4 rounded-full bg-[#1a1a1a] text-gray-100 text-lg outline-none border-2 border-[#2a2a2a] focus:border-[#FFD700] focus:ring-4 focus:ring-[#FFD700]/30 shadow-[0_0_20px_rgba(255,215,0,0.15)] placeholder-gray-500 transition duration-300"
+          className="w-full px-6 py-4 rounded-full bg-[#1a1a1a] text-gray-100 text-lg outline-none border border-[#2a2a2a] focus:border-[#FFD700] focus:ring-2 focus:ring-[#FFD700]/30 transition"
         />
-        <button className="absolute right-2.5 top-2.5 bg-[#FFD700] text-black px-6 py-2.5 rounded-full font-semibold hover:bg-yellow-400 transition flex items-center gap-2 shadow-[0_0_10px_rgba(255,215,0,0.4)]">
+        <button className="absolute right-3 top-2.5 bg-[#FFD700] text-black px-6 py-2.5 rounded-full font-medium hover:bg-yellow-400 transition flex items-center gap-2">
           <SearchIcon size={18} />
           Cari
         </button>
       </div>
 
-      {/* Jika belum mencari, tampilkan pesan kosong */}
+      {/* Jika belum mencari */}
       {!query && (
-        <p className="text-gray-400 mt-16 text-center text-lg italic">
+        <p className="text-gray-400 mt-10 text-center text-base italic">
           Ketik nama produk di atas untuk mulai mencari ✨
         </p>
       )}
@@ -56,41 +56,38 @@ export default function Search() {
       {/* Hasil pencarian */}
       {query && (
         <>
-          <p className="text-gray-400 mb-10 text-center text-lg">
+          <p className="text-gray-400 mb-8 text-center text-base">
             Menampilkan hasil untuk{" "}
-            <span className="text-[#FFD700] font-semibold">"{query}"</span>
+            <span className="text-[#FFD700] font-medium">"{query}"</span>
           </p>
 
-          <div className="w-full max-w-7xl">
+          <div className="w-full max-w-6xl">
             {filtered.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 animate-fadeIn">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filtered.map((product) => (
                   <Link
                     to={`/products/${product.id}`}
                     key={product.id}
-                    className="group bg-gradient-to-b from-[#151515] to-[#0f0f0f] rounded-2xl border border-[#2a2a2a] overflow-hidden hover:border-[#FFD700]/60 hover:shadow-[0_0_25px_rgba(255,215,0,0.3)] transform hover:-translate-y-2 transition-all duration-300"
+                    className="group bg-[#151515] rounded-xl border border-[#2a2a2a] overflow-hidden hover:border-[#FFD700]/50 hover:shadow-lg hover:shadow-[#FFD700]/20 transition-all duration-300"
                   >
-                    <div className="relative">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                     <div className="p-5 text-center">
-                      <h2 className="text-xl font-semibold text-white group-hover:text-[#FFD700] transition duration-300">
+                      <h2 className="text-lg font-semibold text-white group-hover:text-[#FFD700] transition">
                         {product.name}
                       </h2>
-                      <p className="text-gray-400 text-sm mt-2 opacity-80 group-hover:opacity-100">
-                        Produk premium by Skupy Digital Printing
+                      <p className="text-gray-400 text-sm mt-2">
+                        Produk premium by Skupy
                       </p>
                     </div>
                   </Link>
                 ))}
               </div>
             ) : (
-              <p className="text-gray-400 text-center mt-10 text-lg">
+              <p className="text-gray-400 text-center mt-8 text-base">
                 Tidak ditemukan produk dengan nama{" "}
                 <span className="text-[#FFD700]">"{query}"</span> 😢
               </p>
@@ -100,10 +97,10 @@ export default function Search() {
       )}
 
       {/* Tombol kembali */}
-      <div className="mt-20">
+      <div className="mt-16">
         <Link
           to="/products"
-          className="bg-[#FFD700] text-black font-semibold px-10 py-3 rounded-full hover:bg-yellow-400 transition shadow-[0_0_15px_rgba(255,215,0,0.4)]"
+          className="bg-[#FFD700] text-black font-medium px-8 py-3 rounded-full hover:bg-yellow-400 transition"
         >
           ← Kembali ke Produk
         </Link>
