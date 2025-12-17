@@ -1,88 +1,81 @@
 import React, { useEffect } from "react";
-import { Instagram, Facebook, Youtube } from "lucide-react"; // ✅ Tambah ikon YouTube
+import { Instagram, Facebook, Youtube } from "lucide-react";
 
 const About = () => {
   useEffect(() => {
-    // Hapus script lama TikTok (biar gak duplikat)
-    const oldScript = document.querySelector(
-      'script[src="https://www.tiktok.com/embed.js"]'
-    );
-    if (oldScript) oldScript.remove();
-
-    // Tambahkan script TikTok baru
     const script = document.createElement("script");
-    script.src = "https://www.tiktok.com/embed.js";
+    script.src = "https://www.instagram.com/embed.js";
     script.async = true;
     document.body.appendChild(script);
+
+    const timer = setTimeout(() => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#111] to-[#1A1A1A] text-white flex flex-col items-center justify-center px-6 py-16">
-      {/* Judul */}
-      <h1 className="text-4xl font-bold text-[#FFD700] mb-4 text-center tracking-wide">
+    <div className="min-h-screen bg-[#2A2D34] text-white flex flex-col items-center px-6 py-20">
+      {/* TITLE */}
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 text-center">
         About Skupy Digital Printing
       </h1>
 
-      {/* Garis */}
-      <div className="w-24 h-1 bg-[#FFD700] mb-6 rounded-full"></div>
+      <div className="w-24 h-1 bg-[#2FC2A5] mb-6 rounded-full shadow-[0_0_12px_rgba(47,194,165,0.6)]"></div>
 
-      {/* Deskripsi */}
-      <p className="text-gray-300 max-w-2xl text-center leading-relaxed text-lg mb-10">
-        <span className="text-[#FFD700] font-semibold">
+      <p className="text-gray-300 max-w-2xl text-center leading-relaxed text-lg mb-12">
+        <span className="text-[#2FC2A5] font-semibold">
           Skupy Digital Printing
-        </span>
-        &nbsp;adalah mitra terpercaya untuk kebutuhan printing berkualitas
-        tinggi — mulai dari sublimasi, DTF, hingga produk custom. Kami memadukan
-        <span className="text-white font-medium"> kreativitas </span>
-        dan <span className="text-white font-medium"> teknologi </span>
-        untuk mewujudkan ide-ide unik Anda menjadi nyata.
+        </span>{" "}
+        adalah partner terbaik untuk kebutuhan printing berkualitas tinggi —
+        mulai dari sublimasi, DTF, hingga berbagai produk custom premium.
       </p>
 
-      {/* Embed TikTok */}
-      <div className="flex justify-center w-full mb-10">
+      {/* INSTAGRAM EMBED */}
+      <div className="flex justify-center w-full mb-14">
         <blockquote
-          className="tiktok-embed border border-[#FFD700]/70 rounded-xl shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-          cite="https://www.tiktok.com/@skupydigitalprinting/video/7468581120649547013"
-          data-video-id="7468581120649547013"
+          className="instagram-media border border-[#2FC2A5]/40 rounded-xl shadow-[0_0_18px_rgba(47,194,165,0.3)]"
+          data-instgrm-permalink="https://www.instagram.com/reel/DM9_i-xvnr_/?utm_source=ig_web_copy_link"
+          data-instgrm-version="14"
           style={{
             maxWidth: "325px",
             minWidth: "325px",
+            borderRadius: "16px",
+            background: "#1E2126",
           }}
-        >
-          <section>Loading TikTok...</section>
-        </blockquote>
+        ></blockquote>
       </div>
 
-      {/* Media Sosial */}
-      <div className="flex flex-wrap items-center justify-center space-x-8 mt-4">
-        {/* Instagram */}
+      {/* SOCIAL MEDIA */}
+      <div className="flex flex-wrap items-center justify-center gap-10 mt-4">
         <a
-          href="https://www.instagram.com/skupy.digitalprinting?igsh=MWs0NWE1ZHAyejQ2Nw=="
+          href="https://www.instagram.com/skupy.digitalprinting"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2 text-gray-300 hover:text-[#FFD700] transition-all duration-300"
+          className="flex items-center space-x-2 text-gray-300 hover:text-[#2FC2A5] transition-all duration-300"
         >
           <Instagram size={24} />
           <span className="font-semibold">Instagram</span>
         </a>
 
-        {/* Facebook */}
         <a
           href="https://www.facebook.com/share/1AMiCYqmak/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2 text-gray-300 hover:text-[#FFD700] transition-all duration-300"
+          className="flex items-center space-x-2 text-gray-300 hover:text-[#2FC2A5] transition-all duration-300"
         >
           <Facebook size={24} />
           <span className="font-semibold">Facebook</span>
         </a>
 
-        {/* YouTube */}
         <a
-          href="https://www.youtube.com/@SkupyPrinting" // 🔁 Ganti dengan link channel YouTube kamu
+          href="https://www.youtube.com/@SkupyPrinting"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center space-x-2 text-gray-300 hover:text-[#FFD700] transition-all duration-300"
+          className="flex items-center space-x-2 text-gray-300 hover:text-[#2FC2A5] transition-all duration-300"
         >
           <Youtube size={24} />
           <span className="font-semibold">YouTube</span>

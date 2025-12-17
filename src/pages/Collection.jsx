@@ -1,164 +1,64 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Collection = () => {
   const products = [
-    {
-      id: 1,
-      name: "Custom Jersey",
-      category: "Apparel",
-      image: "/img/produk1.png",
-      desc: "Desain jersey sesuai keinginanmu dengan bahan premium.",
-    },
-    {
-      id: 2,
-      name: "Custom Kaos DTF",
-      category: "Apparel",
-      image: "/img/produk7.png",
-      desc: "Kaos DTF printing dengan warna tajam dan tahan lama.",
-    },
-    {
-      id: 3,
-      name: "Custom Kaos Polo",
-      category: "Apparel",
-      image: "/img/produk6.png",
-      desc: "Kaos polo custom dengan bordir atau sablon DTF premium.",
-    },
-    {
-      id: 4,
-      name: "Custom Kemeja / Seragam",
-      category: "Apparel",
-      image: "/img/produk8.png",
-      desc: "Kemeja dan seragam profesional untuk perusahaan atau event.",
-    },
-    {
-      id: 5,
-      name: "Custom Hijab Syar'i",
-      category: "Hijab",
-      image: "/img/produk2.png",
-      desc: "Hijab syar'i dengan motif dan bahan lembut premium.",
-    },
-    {
-      id: 6,
-      name: "Custom Hijab Segi 4",
-      category: "Hijab",
-      image: "/img/produk9.png",
-      desc: "Hijab segi empat dengan bahan lembut dan motif printing.",
-    },
-    {
-      id: 7,
-      name: "Custom Hijab Bergo",
-      category: "Hijab",
-      image: "/img/produk11.png",
-      desc: "Hijab bergo praktis dengan desain custom elegan.",
-    },
-    {
-      id: 8,
-      name: "Sling & Waist Bag",
-      category: "Accessories",
-      image: "/img/produk4.png",
-      desc: "Tas selempang dan pinggang desain modern dan kuat.",
-    },
-    {
-      id: 9,
-      name: "Pouch & Laptop Case",
-      category: "Accessories",
-      image: "/img/produk5.png",
-      desc: "Pouch dan laptop case elegan untuk gaya profesional.",
-    },
-    {
-      id: 10,
-      name: "Custom Tote Bag",
-      category: "Accessories",
-      image: "/img/produk3.png",
-      desc: "Tote bag ramah lingkungan dengan desain custom unik.",
-    },
-    {
-      id: 11,
-      name: "Custom Gamis Printing",
-      category: "Gamis",
-      image: "/img/produk10.png",
-      desc: "Gamis printing eksklusif dengan bahan adem premium.",
-    },
-    {
-      id: 12,
-      name: "Custom Mukena Printing",
-      category: "Gamis",
-      image: "/img/produk12.png",
-      desc: "Mukena printing elegan dengan corak eksklusif dan lembut.",
-    },
+    { id: 1, name: "Jersey 1", image: "/img/bosx/1.jpg" },
+    { id: 2, name: "Jersey 2", image: "/img/bosx/2.jpg" },
+    { id: 3, name: "Jersey 3", image: "/img/bosx/3.jpg" },
+    { id: 4, name: "Jersey 4", image: "/img/bosx/4.jpg" },
+    { id: 5, name: "Jersey 5", image: "/img/bosx/5.jpg" },
+    { id: 6, name: "Jersey 6", image: "/img/bosx/6.jpg" },
+    { id: 7, name: "Jersey 7", image: "/img/bosx/7.jpg" },
+    { id: 8, name: "Jersey 8", image: "/img/bosx/8.jpg" },
+    { id: 9, name: "Jersey 9", image: "/img/bosx/9.jpg" },
+    { id: 10, name: "Jersey 10", image: "/img/bosx/10.jpg" },
+    { id: 11, name: "Jersey 11", image: "/img/bosx/11.jpg" },
+    { id: 12, name: "Jersey 12", image: "/img/bosx/12.jpg" },
+    { id: 13, name: "Jersey 13", image: "/img/bosx/13.jpg" },
+    { id: 14, name: "Jersey 14", image: "/img/bosx/14.jpg" },
+    { id: 15, name: "Jersey 15", image: "/img/bosx/15.jpg" },
+    { id: 16, name: "Jersey 16", image: "/img/bosx/16.jpg" },
+    { id: 17, name: "Jersey 17", image: "/img/bosx/17.jpg" },
+    { id: 18, name: "Jersey 18", image: "/img/bosx/18.jpg" },
+    { id: 19, name: "Jersey 19", image: "/img/bosx/19.jpg" },
+    { id: 20, name: "Jersey 20", image: "/img/bosx/20.jpg" },
+    { id: 21, name: "Jersey 21", image: "/img/bosx/22.jpg" },
+    { id: 22, name: "Jersey 22", image: "/img/bosx/23.jpg" },
+    { id: 23, name: "Jersey 23", image: "/img/bosx/24.jpg" },
+    { id: 24, name: "Jersey 24", image: "/img/bosx/25.jpg" },
+    { id: 25, name: "Jersey 25", image: "/img/bosx/26.jpg" },
   ];
 
-  const categories = ["All", "Apparel", "Hijab", "Accessories", "Gamis"];
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProducts =
-    activeCategory === "All"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
-
   return (
-    <section className="min-h-screen bg-gradient-to-b from-[#0c0c0c] via-[#111] to-[#1a1a1a] text-white flex flex-col items-center justify-center px-6 py-20">
-      <div className="text-center mb-10">
-        <h1 className="text-5xl font-bold text-[#FFD700] mb-3 tracking-wide drop-shadow-[0_0_12px_rgba(255,215,0,0.3)]">
-          Our Collections
-        </h1>
-        <div className="w-28 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full mb-5"></div>
-        <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed text-lg">
-          Pilih kategori produk yang kamu inginkan, lalu temukan berbagai koleksi
-          eksklusif dengan desain dan kualitas terbaik dari{" "}
-          <span className="text-[#FFD700] font-semibold">Skupy</span>.
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#2A2D34] py-20 px-8 text-white">
+      <h1 className="text-4xl font-bold text-center text-[#2FC2A5] mb-4">
+        Koleksi Jersey
+      </h1>
 
-      {/* Tombol Kategori */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-6 py-2 rounded-full font-semibold border transition-all duration-300 ${
-              activeCategory === cat
-                ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black border-yellow-500 shadow-lg shadow-yellow-500/30"
-                : "border-[#FFD700]/30 text-[#FFD700] hover:border-[#FFD700] hover:shadow-yellow-400/30"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <p className="text-center text-gray-300 max-w-2xl mx-auto mb-12">
+        Beberapa contoh kumpulan jersey custom eksklusif dengan desain modern,
+        bahan premium, dan kualitas sablon terbaik untuk tim, komunitas,
+        maupun personal yang pernah kami buat.
+      </p>
 
-      {/* Grid Produk */}
-      <div
-        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full transition-all duration-500 ${
-          filteredProducts.length === 0 ? "opacity-50" : "opacity-100"
-        }`}
-      >
-        {filteredProducts.map((item) => (
+      {/* PRODUCT GRID */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        {products.map((item) => (
           <div
             key={item.id}
-            className="group bg-gradient-to-b from-[#1a1a1a] to-[#141414] rounded-2xl border border-[#FFD700]/20 shadow-lg shadow-black/40 overflow-hidden hover:scale-[1.03] hover:border-[#FFD700]/60 transition-all duration-500"
+            className="bg-[#1E2126] rounded-xl shadow hover:shadow-lg transition p-3 border border-[#2FC2A5]/40 cursor-default"
           >
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+              className="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
             />
-            <div className="p-6 text-center">
-              <h3 className="text-2xl font-semibold text-[#FFD700] mb-2">
-                {item.name}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            <h3 className="mt-3 text-center font-medium">{item.name}</h3>
           </div>
         ))}
       </div>
-
-      {filteredProducts.length === 0 && (
-        <p className="text-gray-500 mt-10 text-center">
-          Tidak ada produk dalam kategori ini.
-        </p>
-      )}
-    </section>
+    </div>
   );
 };
 

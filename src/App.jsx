@@ -6,11 +6,13 @@ import Loading from "./components/Loading";
 // Halaman utama
 import Products from "./pages/Products";
 import Collection from "./pages/Collection";
-import Testimonials from "./pages/Testimonials";
+import Custom from "./pages/Custom";
+// import Testimonials from "./pages/Testimonials";
 import About from "./pages/About";
 import ProductsDetail from "./pages/ProductsDetail";
 import Cart from "./pages/Cart"; // ✅ Halaman keranjang
 import Search from "./pages/Search"; // ✅ Halaman pencarian
+import WhatsApp from "./pages/WhatsApp";
 
 // Lazy load komponen besar
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
@@ -29,7 +31,7 @@ export default function App() {
 
   return (
     <Suspense fallback={<Loading />}>
-      {/* Navbar muncul di semua halaman kecuali halaman auth */}
+      {/* Navbar muncul di semua halaman */}
       {shouldShowNavbar && <Navbar />}
 
       <Routes>
@@ -38,7 +40,8 @@ export default function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductsDetail />} />
           <Route path="/collection" element={<Collection />} />
-          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/custom" element={<Custom />} />
+          {/* <Route path="/testimonials" element={<Testimonials />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/search" element={<Search />} />
@@ -51,6 +54,8 @@ export default function App() {
           <Route path="/forgot" element={<Forgot />} />
         </Route>
       </Routes>
+
+      <WhatsApp />
     </Suspense>
   );
 }

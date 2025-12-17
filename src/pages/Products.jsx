@@ -1,132 +1,91 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Products = () => {
-  const products = [
+  const jerseys = [
     {
       id: 1,
-      name: "Custom Jersey",
-      description: "Desain jersey sesuai keinginanmu dengan bahan premium.",
-      image: "/img/produk1.png",
-    },
-     {
-      id: 2,
-      name: "Custom Kaos Polo",
+      name: "Jersey Futsal Custom",
       description:
-        "Kaos polo dengan desain bordir atau sablon custom, cocok untuk seragam atau promosi.",
-      image: "/img/produk6.png",
+        "Desain jersey futsalmu sendiri dengan warna, logo, dan nama tim sesuai keinginan.",
+      image: "/img/jersey-futsal.png",
+    },
+    {
+      id: 2,
+      name: "Jersey Sepeda",
+      description:
+        "Bahan adem dan ringan, cocok untuk gowes jarak jauh dengan desain full print premium.",
+      image: "/img/jersey-sepeda.png",
     },
     {
       id: 3,
-      name: "Custom Kaos DTF",
+      name: "Jersey Esport",
       description:
-        "Kaos DTF printing dengan warna tajam dan tahan lama, ideal untuk bisnis atau komunitas.",
-      image: "/img/produk7.png",
+        "Tampil percaya diri saat turnamen! Jersey esport dengan bahan halus dan warna vivid.",
+      image: "/img/jersey-esport.png",
     },
     {
       id: 4,
-      name: "Custom Kemeja / Seragam",
+      name: "Jersey Basket",
       description:
-        "Kemeja dan seragam custom profesional untuk perusahaan, organisasi, atau event.",
-      image: "/img/produk8.png",
-    },
-    {
-      id: 5,
-      name: "Tote Bag Printing",
-      description: "Tote bag unik dan ramah lingkungan dengan desain custom.",
-      image: "/img/produk3.png",
-    },
-    {
-      id: 6,
-      name: "Custom Hijab Syar'i",
-      description:
-        "Hijab syar'i dengan motif dan warna sesuai seleramu, nyaman dipakai dan elegan.",
-      image: "/img/produk2.png",
-    },
-    {
-      id: 7,
-      name: "Sling & Waist Bag",
-      description:
-        "Tas selempang dan pinggang dengan desain modern dan bahan tahan lama untuk gaya kasualmu.",
-      image: "/img/produk4.png",
-    },
-    {
-      id: 8,
-      name: "Pouch & Laptop Case",
-      description:
-        "Pouch dan case laptop elegan untuk melindungi barangmu dengan tampilan stylish.",
-      image: "/img/produk5.png",
-    },
-    {
-      id: 9,
-      name: "Custom Hijab Segi 4",
-      description:
-        "Hijab segi empat dengan bahan lembut dan motif printing sesuai keinginanmu.",
-      image: "/img/produk9.png",
-    },
-    {
-      id: 10,
-      name: "Custom Gamis Printing",
-      description:
-        "Gamis printing eksklusif dengan corak unik dan bahan yang nyaman dipakai seharian.",
-      image: "/img/produk10.png",
-    },
-    {
-      id: 11,
-      name: "Custom Hijab Bergo",
-      description:
-        "Hijab bergo praktis dengan desain dan warna sesuai keinginanmu, nyaman untuk aktivitas sehari-hari.",
-      image: "/img/produk11.png",
-    },
-    {
-      id: 12,
-      name: "Custom Mukena Printing",
-      description:
-        "Mukena dengan desain printing elegan dan bahan lembut yang nyaman untuk beribadah.",
-      image: "/img/produk12.png",
+        "Jersey basket dengan bahan dry-fit yang nyaman dan desain sporty modern.",
+      image: "/img/jersey-basket.png",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-[#111] text-white flex flex-col items-center py-20 px-6">
-      <h1 className="text-4xl font-extrabold text-[#FFD700] mb-3">
-        Our Products
-      </h1>
-      <p className="text-gray-400 text-center max-w-2xl mb-12">
-        Jelajahi berbagai produk custom terbaik dari kami — dari jersey, tote
-        bag, hingga merchandise unik lainnya yang bisa kamu sesuaikan dengan
-        gaya dan kebutuhanmu.
+    <div className="min-h-screen bg-[#2A2D34] text-white py-24 px-6 flex flex-col items-center">
+
+      {/* Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="text-4xl md:text-5xl font-extrabold mb-4 text-center"
+      >
+       Produk Kami
+      </motion.h1>
+
+      <div className="w-24 h-1 bg-[#2FC2A5] rounded-full mb-10"></div>
+
+      <p className="text-[#C9C9C9] text-center max-w-2xl mb-14 leading-relaxed">
+        Pilihan jersey premium untuk tim, komunitas, dan sekolah. 
+        Dibuat dengan bahan terbaik dan warna vivid.
       </p>
 
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 max-w-7xl w-full">
-        {products.map((item) => (
-          <div
+      {/* Jersey Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full">
+        {jerseys.map((item) => (
+          <motion.div
             key={item.id}
-            className="bg-[#1a1a1a] rounded-2xl shadow-lg border border-[#FFD700]/30 hover:border-[#FFD700] hover:shadow-[#FFD700]/40 transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 120 }}
+            className="bg-white/10 border border-white/20 rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-[#2FC2A5] transition-all duration-300 backdrop-blur-sm"
           >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-56 object-cover rounded-t-2xl hover:scale-105 transition-transform duration-300"
-            />
-            <div className="p-5 text-center">
-              <h3 className="text-xl font-semibold text-[#FFD700]">
+            <div className="flex flex-col items-center text-center">
+              <div className="w-48 h-48 rounded-xl overflow-hidden border border-[#2FC2A5]/50 bg-[#1F2126] mb-4 shadow">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {item.name}
               </h3>
-              <p className="text-gray-400 text-sm mt-2">{item.description}</p>
 
-              {/* Tombol menuju halaman detail */}
-              <Link
-                to={`/products/${item.id}`}
-                className="inline-block mt-5 bg-[#FFD700] text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-400 transition-all"
-              >
-                Lihat Detail
-              </Link>
+              <p className="text-[#C9C9C9] text-sm leading-relaxed">
+                {item.description}
+              </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
+
+      <p className="text-[#2FC2A5] text-sm mt-16 italic tracking-wide text-center">
+        “Jersey premium untuk performa terbaik tim kamu.”
+      </p>
     </div>
   );
 };

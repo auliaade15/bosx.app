@@ -1,130 +1,69 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { ShoppingCart, Search, Menu, X } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { Shirt } from "lucide-react";
 
-const Navbar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems = [
-    { name: "Home", path: "/" },
-    { name: "Products", path: "/products" },
-    { name: "Collection", path: "/collection" },
-    { name: "Testimonials", path: "/testimonials" },
-    { name: "About Us", path: "/about" },
-  ];
-
+export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 w-full bg-[#0d0d0d] text-white py-3 z-50 border-b border-[#1f1f1f]/70 shadow-lg">
-      <div className="w-full flex items-center justify-between px-6 md:px-12">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
-          <img
-            src="/skupy logo.jpg"
-            alt="Skupy Logo"
-            className="w-10 h-10 rounded-md border border-[#FFD700]/80 shadow-[0_0_8px_rgba(255,215,0,0.4)]"
-          />
-          <span className="text-xl font-bold tracking-tight whitespace-nowrap">
-            <span className="text-[#FFD700]">Skupy</span>{" "}
-            <span className="text-gray-100">Digital Printing</span>
-          </span>
-        </Link>
+    <header className="w-full fixed top-0 left-0 z-50 bg-[#2A2D34] border-b border-white/10">
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-        {/* Tombol Hamburger (muncul di HP) */}
-        <button
-          className="md:hidden text-[#FFD700] text-2xl focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {/* LEFT BRAND */}
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-[#2FC2A5]/10">
+            <Shirt size={22} className="text-[#2FC2A5]" />
+          </div>
+          <h1 className="text-xl font-bold tracking-wide text-[#2FC2A5]">
+            Custom Jersey
+          </h1>
+        </div>
 
-        {/* Menu Tengah (Desktop) */}
-        <ul className="hidden md:flex space-x-10">
-          {menuItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                to={item.path}
-                className={`transition-all duration-200 font-semibold tracking-wide ${
-                  location.pathname === item.path
-                    ? "text-[#FFD700] border-b-2 border-[#FFD700] pb-1"
-                    : "text-gray-300 hover:text-[#FFD700]"
-                }`}
-              >
-                {item.name.toUpperCase()}
-              </Link>
-            </li>
-          ))}
+        {/* RIGHT MENU */}
+        <ul className="flex items-center gap-10 text-lg font-medium text-white">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#2FC2A5] border-b-2 border-[#2FC2A5] pb-1"
+                : "hover:text-[#2FC2A5] transition"
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/custom"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#2FC2A5] border-b-2 border-[#2FC2A5] pb-1"
+                : "hover:text-[#2FC2A5] transition"
+            }
+          >
+            Custom
+          </NavLink>
+
+          <NavLink
+            to="/collection"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#2FC2A5] border-b-2 border-[#2FC2A5] pb-1"
+                : "hover:text-[#2FC2A5] transition"
+            }
+          >
+            Collection
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#2FC2A5] border-b-2 border-[#2FC2A5] pb-1"
+                : "hover:text-[#2FC2A5] transition"
+            }
+          >
+            About
+          </NavLink>
         </ul>
 
-        {/* Icon kanan */}
-        <div className="hidden md:flex items-center space-x-5">
-          <button
-            onClick={() => navigate("/cart")}
-            className="hover:text-[#FFD700] transition duration-200"
-            title="Keranjang Belanja"
-          >
-            <ShoppingCart size={22} />
-          </button>
-          <button
-            onClick={() => navigate("/search")}
-            className="hover:text-[#FFD700] transition duration-200"
-            title="Cari Produk"
-          >
-            <Search size={22} />
-          </button>
-        </div>
-      </div>
-
-      {/* Menu Mobile */}
-      {isOpen && (
-        <div className="md:hidden bg-[#111] border-t border-[#333] mt-2">
-          <ul className="flex flex-col items-center py-4 space-y-4 text-base font-medium">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <Link
-                  to={item.path}
-                  onClick={() => setIsOpen(false)} // Tutup menu setelah klik
-                  className={`block px-4 py-2 ${
-                    location.pathname === item.path
-                      ? "text-[#FFD700]"
-                      : "text-gray-300 hover:text-[#FFD700]"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-
-            {/* Icon kanan di versi mobile */}
-            <div className="flex items-center space-x-6 pt-4 border-t border-[#333] mt-2">
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  navigate("/cart");
-                }}
-                className="hover:text-[#FFD700] transition duration-200"
-                title="Keranjang Belanja"
-              >
-                <ShoppingCart size={22} />
-              </button>
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  navigate("/search");
-                }}
-                className="hover:text-[#FFD700] transition duration-200"
-                title="Cari Produk"
-              >
-                <Search size={22} />
-              </button>
-            </div>
-          </ul>
-        </div>
-      )}
-    </nav>
+      </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}
