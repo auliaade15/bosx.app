@@ -12,7 +12,7 @@ export default function Navbar() {
             <Shirt size={22} className="text-[#2FC2A5]" />
           </div>
           <h1 className="text-xl font-bold tracking-wide text-[#2FC2A5]">
-            Custom Jersey
+            Bosx Apparel Custom Jersey
           </h1>
         </div>
 

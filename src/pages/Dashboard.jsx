@@ -107,7 +107,7 @@ const Dashboard = () => {
             {/* BRAND */}
             <div>
               <h2 className="text-3xl font-bold text-[#2FC2A5] mb-4">
-                Custom Jersey
+                Bosx Apparel Custom Jersey
               </h2>
               <p className="text-gray-300 leading-relaxed max-w-sm">
                 Jersey custom premium untuk tim, komunitas, dan sekolah. Bebas
