@@ -101,98 +101,65 @@ const Dashboard = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#2A2D34] text-white pt-14 pb-8">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
-            {/* BRAND */}
-            <div>
-              <h2 className="text-3xl font-bold text-[#2FC2A5] mb-4">
-                Bosx Apparel Custom Jersey
-              </h2>
-              <p className="text-gray-300 leading-relaxed max-w-sm">
-                Jersey custom premium untuk tim, komunitas, dan sekolah. Bebas
-                desain, bahan adem dan nyaman.
-              </p>
-            </div>
-
-            {/* MENU */}
-            <div className="flex flex-col items-center md:items-start">
-              <h3 className="text-xl font-semibold text-[#2FC2A5] mb-4">
-                Menu
-              </h3>
-
-              <ul className="grid grid-cols-2 gap-x-10 gap-y-2 text-gray-300 text-center md:text-left">
-                <li>
-                  <NavLink
-                    to="/products"
-                    className="hover:text-[#2FC2A5] transition"
-                  >
-                    Produk
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/custom"
-                    className="hover:text-[#2FC2A5] transition"
-                  >
-                    Custom
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/collection"
-                    className="hover:text-[#2FC2A5] transition"
-                  >
-                    Koleksi Kami
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/about"
-                    className="hover:text-[#2FC2A5] transition"
-                  >
-                    Tentang Kami
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-
-            {/* KONTAK */}
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-semibold text-[#2FC2A5] mb-4">
-                Hubungi Kami
-              </h3>
-              <p className="text-gray-300">WhatsApp</p>
-              <p className="text-gray-300 font-medium mt-1">0812-5557-7705</p>
-            </div>
+      <footer className="bg-[#2A2D34] text-white pt-10 pb-6 md:pt-16 md:pb-8">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* BRAND */}
+          <div className="text-center md:text-left">
+            <h2 className="text-xl md:text-3xl font-bold text-[#2FC2A5]">
+              Bosx Apparel
+            </h2>
+            <p className="text-gray-400 text-sm md:text-base mt-2 max-w-xs mx-auto md:mx-0">
+              Jersey custom premium untuk tim & komunitas.
+            </p>
           </div>
 
-          {/* Map */}
-          <div className="mt-10 border-t border-white/10">
-            <h3 className="text-center text-[#2FC2A5] font-semibold text-lg pt-6">
-              Our Location
-            </h3>
+          {/* MENU */}
+          <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm md:text-base text-gray-300 mt-6">
+            <li>
+              <NavLink to="/products" className="hover:text-[#2FC2A5]">
+                Produk
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/custom" className="hover:text-[#2FC2A5]">
+                Custom
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/collection" className="hover:text-[#2FC2A5]">
+                Koleksi
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className="hover:text-[#2FC2A5]">
+                Tentang
+              </NavLink>
+            </li>
+          </ul>
 
-            <div className="flex justify-center mt-4">
-              <div
-                className="w-[90%] md:w-[70%] h-[180px] rounded-xl overflow-hidden border border-[#2FC2A5]/40 shadow-[0_0_18px_rgba(47,194,165,0.35)]"
-              >
-                <iframe
-                  title="Skupy Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.634444602713!2d106.81327112847492!3d-6.192542766330858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7006d8920df%3A0x3b79af9a4f9bf92!2sBOSX%20APPAREL%20CUSTOM%20JERSEY%20TERBAIK%2C%20TERMURAH%2C%20TERBAIK%20JAKARTA!5e0!3m2!1sen!2sid!4v1765878725588!5m2!1sen!2sid"
-                  width="100%"
-                  height="100%"
-                  loading="lazy"
-                  className="border-0"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
+          {/* CONTACT */}
+          <div className="text-center md:text-left mt-6">
+            <p className="text-gray-400 text-sm">WhatsApp</p>
+            <p className="text-white font-semibold text-base mt-1">
+              0812-5557-7705
+            </p>
+          </div>
+
+          {/* MAP – MOBILE MINIMAL */}
+          <div className="mt-6 md:mt-10">
+            <div className="w-full md:w-[70%] h-[120px] md:h-[200px] rounded-xl overflow-hidden border border-white/10">
+              <iframe
+                title="Bosx Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.634444602713!2d106.81327112847492!3d-6.192542766330858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7006d8920df%3A0x3b79af9a4f9bf92!2sBOSX%20APPAREL!5e0!3m2!1sen!2sid!4v1765878725588"
+                className="w-full h-full border-0"
+                loading="lazy"
+              />
             </div>
           </div>
 
           {/* COPYRIGHT */}
-          <div className="border-t border-white/10 mt-12 pt-6 text-center text-gray-500 text-sm">
-            © {new Date().getFullYear()} Custom Jersey. All Rights Reserved.
+          <div className="border-t border-white/10 mt-6 pt-4 text-center text-xs text-gray-500">
+            © {new Date().getFullYear()} Bosx Apparel
           </div>
         </div>
       </footer>
