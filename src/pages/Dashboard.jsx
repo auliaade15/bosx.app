@@ -116,8 +116,8 @@ const Dashboard = () => {
           {/* MENU */}
           <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm md:text-base text-gray-300 mt-6">
             <li>
-              <NavLink to="/products" className="hover:text-[#2FC2A5]">
-                Produk
+              <NavLink to="/" className="hover:text-[#2FC2A5]">
+                Beranda
               </NavLink>
             </li>
             <li>
