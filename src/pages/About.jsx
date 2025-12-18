@@ -21,7 +21,7 @@ const About = () => {
     <div className="min-h-screen bg-[#2A2D34] text-white flex flex-col items-center px-6 py-20">
       {/* TITLE */}
       <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 text-center">
-        About Skupy Digital Printing
+        About Bosx Apparel Custom Jersey
       </h1>
 
       <div className="w-24 h-1 bg-[#2FC2A5] mb-6 rounded-full shadow-[0_0_12px_rgba(47,194,165,0.6)]"></div>
