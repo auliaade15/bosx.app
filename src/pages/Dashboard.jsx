@@ -22,7 +22,7 @@ const Dashboard = () => {
           {/* TEXT */}
           <div>
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-              Custom Jersey
+              Bosx Apparel Custom Jersey
             </h1>
 
             <p className="text-[#C9C9C9] text-lg mt-4 max-w-md leading-relaxed">
@@ -101,68 +101,72 @@ const Dashboard = () => {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#2A2D34] text-white pt-10 pb-6 md:pt-16 md:pb-8">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* BRAND */}
-          <div className="text-center md:text-left">
-            <h2 className="text-xl md:text-3xl font-bold text-[#2FC2A5]">
-              Bosx Apparel
-            </h2>
-            <p className="text-gray-400 text-sm md:text-base mt-2 max-w-xs mx-auto md:mx-0">
-              Jersey custom premium untuk tim & komunitas.
-            </p>
-          </div>
+    <footer className="bg-[#2A2D34] text-white pt-12 pb-6">
+  <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
 
-          {/* MENU */}
-          <ul className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm md:text-base text-gray-300 mt-6">
-            <li>
-              <NavLink to="/" className="hover:text-[#2FC2A5]">
-                Beranda
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/custom" className="hover:text-[#2FC2A5]">
-                Custom
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/collection" className="hover:text-[#2FC2A5]">
-                Koleksi
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" className="hover:text-[#2FC2A5]">
-                Tentang
-              </NavLink>
-            </li>
-          </ul>
+    {/* BRAND */}
+    <h2 className="text-2xl md:text-3xl font-bold text-[#2FC2A5]">
+      Bosx Apparel
+    </h2>
+    <p className="text-gray-400 text-sm md:text-base mt-2 max-w-md">
+      Jersey custom premium untuk tim & komunitas.
+    </p>
 
-          {/* CONTACT */}
-          <div className="text-center md:text-left mt-6">
-            <p className="text-gray-400 text-sm">WhatsApp</p>
-            <p className="text-white font-semibold text-base mt-1">
-              0812-5557-7705
-            </p>
-          </div>
+    {/* MENU */}
+    <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm md:text-base text-gray-300 mt-6">
+      <li>
+        <NavLink to="/" className="hover:text-[#2FC2A5] transition">
+          Beranda
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/custom" className="hover:text-[#2FC2A5] transition">
+          Custom
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/collection" className="hover:text-[#2FC2A5] transition">
+          Koleksi
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/about" className="hover:text-[#2FC2A5] transition">
+          Tentang
+        </NavLink>
+      </li>
+    </ul>
 
-          {/* MAP – MOBILE MINIMAL */}
-          <div className="mt-6 md:mt-10">
-            <div className="w-full md:w-[70%] h-[120px] md:h-[200px] rounded-xl overflow-hidden border border-white/10">
-              <iframe
-                title="Bosx Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.634444602713!2d106.81327112847492!3d-6.192542766330858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7006d8920df%3A0x3b79af9a4f9bf92!2sBOSX%20APPAREL!5e0!3m2!1sen!2sid!4v1765878725588"
-                className="w-full h-full border-0"
-                loading="lazy"
-              />
-            </div>
-          </div>
+    {/* CONTACT */}
+    <div className="mt-6">
+      <p className="text-gray-400 text-sm">WhatsApp</p>
+      <p className="text-white font-semibold text-base mt-1">
+        0812-5557-7705
+      </p>
+    </div>
 
-          {/* COPYRIGHT */}
-          <div className="border-t border-white/10 mt-6 pt-4 text-center text-xs text-gray-500">
-            © {new Date().getFullYear()} Bosx Apparel
-          </div>
-        </div>
-      </footer>
+    {/* MAP */}
+    <div className="mt-8 w-full flex flex-col items-center">
+      <h3 className="text-[#2FC2A5] font-semibold text-sm md:text-base mb-3">
+        Our Location
+      </h3>
+
+      <div className="w-full md:w-[70%] h-[140px] md:h-[240px] rounded-xl overflow-hidden border border-white/10 shadow-[0_0_18px_rgba(47,194,165,0.25)]">
+        <iframe
+          title="Bosx Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.634444602713!2d106.81327112847492!3d-6.192542766330858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7006d8920df%3A0x3b79af9a4f9bf92!2sBOSX%20APPAREL!5e0!3m2!1sen!2sid!4v1765878725588"
+          className="w-full h-full border-0"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    {/* COPYRIGHT */}
+    <div className="border-t border-white/10 mt-8 pt-4 w-full text-center text-xs md:text-sm text-gray-500">
+      © {new Date().getFullYear()} Bosx Apparel
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 };
