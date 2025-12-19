@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import { Star, Users, PenTool } from "lucide-react";
+import { Star, Users, PenTool, ChevronLeft, ChevronRight } from "lucide-react";
 
-/* IMAGE SLIDER DATA */
+/* IMAGE DATA */
 const images = [
   "/img/jersey/DSC09742.JPG",
   "/img/jersey/DSC09754.JPG",
@@ -13,12 +13,13 @@ const images = [
 const Dashboard = () => {
   const [index, setIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const prevImage = () => {
+    setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextImage = () => {
+    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="font-sans bg-white text-white">
@@ -56,27 +57,46 @@ const Dashboard = () => {
             </NavLink>
           </div>
 
-          {/* IMAGE SLIDER */}
-          <div className="relative flex justify-center">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={images[index]}
-                src={images[index]}
-                alt="Jersey"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.6 }}
-                className="w-[280px] md:w-[340px] lg:w-[380px]
-                           rounded-2xl shadow-2xl
-                           border-4 border-white/20"
-              />
-            </AnimatePresence>
+          {/* IMAGE + ARROWS */}
+          <div className="relative flex justify-center items-center">
+            {/* LEFT */}
+            <button
+              onClick={prevImage}
+              className="absolute left-0 md:-left-6 z-10
+               bg-white/10 hover:bg-white/20
+               p-2 rounded-full backdrop-blur transition"
+            >
+              <ChevronLeft size={28} />
+            </button>
+
+            {/* IMAGE */}
+            <motion.img
+              src={images[index]}
+              alt="Jersey"
+              layout="position"
+              animate={{ opacity: [0.7, 1] }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="w-[280px] md:w-[340px] lg:w-[380px]
+               rounded-2xl shadow-2xl
+               border-4 border-white/20"
+            />
+
+            {/* RIGHT */}
+            <button
+              onClick={nextImage}
+              className="absolute right-0 md:-right-6 z-10
+               bg-white/10 hover:bg-white/20
+               p-2 rounded-full backdrop-blur transition"
+            >
+              <ChevronRight size={28} />
+            </button>
 
             {/* glow */}
-            <div className="absolute -z-10 w-[300px] h-[300px]
-                            bg-[#2FC2A5]/30 blur-[80px]
-                            rounded-full" />
+            <div
+              className="absolute -z-10 w-[300px] h-[300px]
+               bg-[#2FC2A5]/30 blur-[80px]
+               rounded-full"
+            />
           </div>
         </div>
       </section>
@@ -121,24 +141,24 @@ const Dashboard = () => {
 
       {/* CTA */}
       <section className="py-20 bg-[#2A2D34] text-center text-white">
-        <h2 className="text-4xl font-extrabold mb-4">
-          Siap Buat Jersey Kamu?
-        </h2>
+        <h2 className="text-4xl font-extrabold mb-4">Siap Buat Jersey Kamu?</h2>
         <p className="text-[#C9C9C9] mb-8 text-lg">
           Custom dengan kualitas terbaik dan proses mudah.
         </p>
 
         <NavLink to="/custom">
-          <button className="px-10 py-3 bg-[#2FC2A5]
-                             hover:bg-[#27A98E]
-                             text-[#1A1D20] font-bold
-                             rounded-lg shadow">
+          <button
+            className="px-10 py-3 bg-[#2FC2A5]
+                       hover:bg-[#27A98E]
+                       text-[#1A1D20] font-bold
+                       rounded-lg shadow"
+          >
             Buat Sekarang
           </button>
         </NavLink>
       </section>
 
-      {/* FOOTER */}
+     {/* FOOTER */}
       <footer className="bg-[#2A2D34] text-white pt-12 pb-6">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
           {/* BRAND */}
