@@ -74,30 +74,18 @@ Catatan Tambahan: ${catatan || "-"}
             </select>
           </div>
 
-          {/* Ukuran */}
+            {/* Nama Team */}
           <div>
             <label className="block text-gray-300 mb-1">
-              Ukuran <span className="text-red-400">*</span>
+              Nama Team <span className="text-red-400">*</span>
             </label>
-            <select
-              value={ukuran}
-              onChange={(e) => setUkuran(e.target.value)}
+            <input
+              type="text"
+              value={nama}
+              onChange={(e) => setNama(e.target.value)}
               className="w-full p-3 rounded-lg bg-[#2A2D34] border border-white/10 outline-none"
-            >
-              <option value="">Pilih Ukuran</option>
-              <optgroup label="Ukuran Normal">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-              </optgroup>
-              <optgroup label="Ukuran Jumbo">
-                <option value="3XL">3XL</option>
-                <option value="4XL">4XL</option>
-                <option value="5XL">5XL</option>
-              </optgroup>
-            </select>
+              placeholder="Masukkan nama team"
+            />
           </div>
 
           {/* Catatan */}
